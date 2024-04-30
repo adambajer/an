@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +12,7 @@
         href="http://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
      <link href="style.css" rel="stylesheet">
-    
 </head>
-
 <body>
     <div class="paper">
         <div class="shm">
@@ -36,8 +32,6 @@
 
                         </div>
                     </div>
-                   
-
                 </div>
                 <button onclick="addNewTrigger()" class="add-trigger">ADD TRIGGER</button>
             </div>
@@ -46,23 +40,14 @@
                 <button class="add" onclick="addManualNote()">ADD NOTE</button>
             </div>
             <div class="sheet">
-                
                 <audio id="dingSound" src="ding.mp3" preload="auto"></audio>
-                
                 <p id="noteArea" class="sheet-text"></p>
                 <div id="listeningStatus"><span id="status">Not Listening</span></div>
-
-                <button onclick="downloadNotes()" class="download">DOWNLOAD</button>
-                
+                <button onclick="downloadNotes()" class="download">DOWNLOAD</button>            
             </div>
         </div>
     </div>
-
-
-    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
     <script src="scripts.js"></script>
-
 </body>
-
 </html>

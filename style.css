@@ -150,13 +150,13 @@ input:focus,input:active,input:focus-visible,.single:focus-visible,.single:focus
   
 
     .single:hover::after {
-        content: attr(data-time);
-        right: 4vw;
-        /* Smaller font size for hover info */
-        color: black;
-        position: absolute;
-        right: 2vw;
-        transform: translateY(0vh);
+       content: attr(data-time);
+  
+    color: black;
+    position: absolute;
+    right: 1vw;
+    font-size: 1vw;
+    transform: translateY(1vh);
     }
 
     .single::before {

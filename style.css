@@ -26,6 +26,7 @@
     display: block;
     height: 1.7vw;
     overflow: hidden; 
+   border-radius:0.2vw;
     }
     .inline-flex div:hover {
         width: fit-content;

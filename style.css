@@ -9,7 +9,15 @@
         margin: 0;
         padding: 0;
     }
-
+span#status {
+    background: currentColor;
+    width: 1vw;
+    height: 1vw;
+    display: block;
+    overflow: hidden;
+    border-radius: 1vw;
+    box-shadow: 0 0 8px 2px currentColor;
+}
     button {
         cursor: pointer;
         border-radius: 0.5vw;

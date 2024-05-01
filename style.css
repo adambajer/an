@@ -21,9 +21,10 @@
     } /* Define colors for each voice trigger */
 .inline-flex div {
           margin-right: 0.2vw;
-    width: 2vw;
+    width: 1.7vw;
+   padding:0.2vw;
     display: block;
-    height: 2vw;
+    height: 1.7vw;
     overflow: hidden; 
     }
     .inline-flex div:hover {
@@ -32,7 +33,7 @@
     }
 
     .sheet .note-mel { 
-    border-right: 5px solid #ffd000;
+    border-right: 0.2vw solid #ffd000;
     }
 
     .inline-flex .note-mel {
@@ -41,7 +42,7 @@
     }
     /* Light red for "měl bych" */
     .sheet .note-musi {
-    border-right: 5px solid #ce00ff; 
+    border-right: 0.2vw solid #ce00ff; 
     }
 .inline-flex .note-musi {
     background:#ce00ff; 
@@ -62,13 +63,13 @@
 }
     /* Light green for "měla bych" */
     .sheet .note-musime {
-    border-right: 5px  solid #000000;
+    border-right: 0.2vw solid #000000;
         
     }
 
     /* Light yellow for "musíme" */
     .sheet .note-melibysme { 
-    border-right: 5px  solid #bf6300; 
+    border-right: 0.2vw solid #bf6300; 
     }
 .inline-flex .note-melibysme  {
     color:#bf6300;
@@ -77,7 +78,7 @@
 
     /* Light orange for "měli bysme" */
     .sheet .note-melibychom {
-    border-right: 5px solid #0099ff; 
+    border-right: 0.2vw solid #0099ff; 
     }
   .inline-flex .note-melibychom  {
     background:#0099ff;

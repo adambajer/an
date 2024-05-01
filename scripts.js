@@ -77,7 +77,7 @@
                     console.log('Sound detected');
                     dingSound.play();
                     statusIndicator.textContent = 'Listening...';
-                    statusIndicator.style.color = 'blue';
+                    statusIndicator.style.color = 'orange';
                 });
             
                 // Callback for successful command recognition

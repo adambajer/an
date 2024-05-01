@@ -26,6 +26,10 @@
     height: 2vw;
     overflow: hidden; 
     }
+    .inline-flex div:hover {
+        width: fit-content;
+        color:white;
+    }
 
     .sheet .note-mel { 
     border-right: 5px solid #ffd000;

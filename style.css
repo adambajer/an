@@ -1,34 +1,4 @@
-    /* Define colors for each voice trigger */
-    .sheet .note-mel { 
-    border-right: 5px solid #ff0000;
-    }
-
-    /* Light red for "měl bych" */
-    .sheet .note-musi {
-    border-right: 5px solid #ce00ff; 
-    }
-
-    /* Light blue for "musím" */
-    .sheet .note-mela { 
-    border-right: 5px solid #ff0000;
-    }
-
-    /* Light green for "měla bych" */
-    .sheet .note-musime {
-    border-right: 5px  solid #000000
-        
-    }
-
-    /* Light yellow for "musíme" */
-    .sheet .note-melibysme { 
-    border-right: 5px  solid #bf6300; 
-    }
-
-    /* Light orange for "měli bysme" */
-    .sheet .note-melibychom {
-    border-right: 5px solid #0099ff; 
-    }
-
+   
     * {
         font-family: "Montserrat", sans-serif;
         font-size: 1.5vw;
@@ -48,7 +18,59 @@
         /* Font size for buttons */
         background-color: transparent;
         font-size: 1vw;
+    } /* Define colors for each voice trigger */
+.inline-flex div {
+          margin-right: 0.2vw;
+    width: 2vw;
+    display: block;
+    height: 2vw;
+    overflow: hidden; 
     }
+
+    .sheet .note-mel { 
+    border-right: 5px solid #ff0000;
+    }
+
+    /* Light red for "měl bych" */
+    .sheet .note-musi {
+    border-right: 5px solid #ce00ff; 
+    }
+.inline-flex div .sheet .note-musi {
+    background:#ce00ff; 
+}
+.inline-flex div .sheet .note-mela {
+    background:#ff0000; 
+}
+    /* Light blue for "musím" */
+    .sheet .note-mela { 
+    border-right: 5px solid #ff0000;
+    }
+
+.inline-flex div .sheet .note-musime  {
+    background:#000000;
+}
+    /* Light green for "měla bych" */
+    .sheet .note-musime {
+    border-right: 5px  solid #000000;
+        
+    }
+
+    /* Light yellow for "musíme" */
+    .sheet .note-melibysme { 
+    border-right: 5px  solid #bf6300; 
+    }
+.inline-flex div .sheet .note-melibysme  {
+    background:#bf6300; 
+}
+
+    /* Light orange for "měli bysme" */
+    .sheet .note-melibychom {
+    border-right: 5px solid #0099ff; 
+    }
+  .inline-flex div .sheet .note-melibychom  {
+    background:#0099ff;
+}
+
 
     .add-trigger {
         color: #bf6300;
@@ -106,9 +128,7 @@
         content: "\1F5D1";
     }
 
-    .inline-flex div {
-        margin-right: 1vw;
-    }
+  
 
     .single:hover::after {
         content: attr(data-time);

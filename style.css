@@ -35,10 +35,10 @@
     .sheet .note-musi {
     border-right: 5px solid #ce00ff; 
     }
-.inline-flex div .sheet .note-musi {
+.inline-flex .note-musi {
     background:#ce00ff; 
 }
-.inline-flex div .sheet .note-mela {
+.inline-flex .note-mela {
     background:#ff0000; 
 }
     /* Light blue for "musím" */
@@ -46,7 +46,7 @@
     border-right: 5px solid #ff0000;
     }
 
-.inline-flex div .sheet .note-musime  {
+.inline-flex .note-musime  {
     background:#000000;
 }
     /* Light green for "měla bych" */
@@ -59,7 +59,7 @@
     .sheet .note-melibysme { 
     border-right: 5px  solid #bf6300; 
     }
-.inline-flex div .sheet .note-melibysme  {
+.inline-flex .note-melibysme  {
     background:#bf6300; 
 }
 
@@ -67,7 +67,7 @@
     .sheet .note-melibychom {
     border-right: 5px solid #0099ff; 
     }
-  .inline-flex div .sheet .note-melibychom  {
+  .inline-flex .note-melibychom  {
     background:#0099ff;
 }
 

@@ -161,6 +161,7 @@
     #manualNoteInput {
         background: transparent;
         border: 0;
+    width:-webkit-fill-available;
         /* Input font size /
             padding-left: 1vw; / Left padding /
             line-height: 1.5vw; / Line height for better readability */

@@ -47,6 +47,7 @@
         padding: 0.2vw;
         /* Font size for buttons */
         background-color: transparent;
+        font-size: 1vw;
     }
 
     .add-trigger {
@@ -82,10 +83,13 @@
 
     .single {
 
-        position: relative;
-        flex-wrap: wrap;
-        display: flex;
-        border-bottom: 0.001vh solid #9198e552;
+            position: relative;
+    border-top-right-radius: 5px;
+    flex-wrap: wrap;
+    display: flex;
+    border-bottom: 0.001vh solid #9198e5;
+    border-bottom-right-radius: 5px;
+    margin-bottom: 0.2vh;
     }
 
     .delete {
@@ -94,8 +98,7 @@
         color: red;
         right: 0vw;
         border: 0px;
-        padding: 0px;
-        font-size: 2vw;
+        padding: 0px; 
         transform: translateY(-1vh);
     }
 

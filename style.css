@@ -1,32 +1,32 @@
     /* Define colors for each voice trigger */
     .sheet .note-mel { 
-        border:1px solid #ff0000;
+    border-left: 1px solid #ff0000;
     }
 
     /* Light red for "měl bych" */
     .sheet .note-musi {
-    border:1px solid #ce00ff; 
+    border-left: 1px solid #ce00ff; 
     }
 
     /* Light blue for "musím" */
     .sheet .note-mela { 
-        border:1px solid #ff0000;
+    border-left: 1px solid #ff0000;
     }
 
     /* Light green for "měla bych" */
     .sheet .note-musime {
-          border:1px solid #000000
+    border-left: 1px solid #000000
         
     }
 
     /* Light yellow for "musíme" */
     .sheet .note-melibysme { 
-        border:1px solid #bf6300; 
+    border-left: 1px solid #bf6300; 
     }
 
     /* Light orange for "měli bysme" */
     .sheet .note-melibychom {
-         border:1px solid #0099ff; 
+    border-left: 1px solid #0099ff; 
     }
 
     * {

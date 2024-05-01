@@ -9,10 +9,7 @@
         margin: 0;
         padding: 0;
     }
-input:focus,input:active,input:focus-visible,.single:focus-visible,.single:focus,.single:active {
-   outline:0;
-   border-bottom:1px solid currentColor;
-}
+
     button {
         cursor: pointer;
         border-radius: 0.5vw;
@@ -109,7 +106,10 @@ input:focus,input:active,input:focus-visible,.single:focus-visible,.single:focus
         max-height: 30vh;
         /* Maximum height */
     }
-
+input:focus,input:active,input:focus-visible,.single:focus-visible,.single:focus,.single:active {
+   outline:0;
+   border-bottom:1px solid currentColor;
+}
     .chevron {
         width: 2vw;
         height: 2vw;

@@ -9,7 +9,10 @@
         margin: 0;
         padding: 0;
     }
-
+input:focus,.sngle:focus {
+   outline:0;
+   border-bottom:1px solid currentColor;
+}
     button {
         cursor: pointer;
         border-radius: 0.5vw;

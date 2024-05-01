@@ -193,6 +193,7 @@
         color: blue;
         position: absolute;
         bottom: 2vh; 
+        right:0px;
     }
 
     #listeningStatus {

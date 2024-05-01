@@ -71,7 +71,8 @@
             if (annyang) {
                 const dingSound = document.getElementById('dingSound');
                 const statusIndicator = document.getElementById('status');
-            
+                                statusIndicator.style.color = 'red';
+
                 // Callback when sound is detected
                 annyang.addCallback('soundstart', function() {
                     console.log('Sound detected');

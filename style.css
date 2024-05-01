@@ -134,12 +134,12 @@ input:focus,input:active,input:focus-visible,.single:focus-visible,.single:focus
 
     .delete {
         position: absolute;
-        top: -0.2vw;
+        top: -0.5vw;
         color: red;
         right: 0vw;
         border: 0px;
         padding: 0px; 
-       font-size:1.5vw;
+       font-size:1vw;
         
     }
 

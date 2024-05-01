@@ -139,6 +139,7 @@ input:focus,.sngle:focus {
         right: 0vw;
         border: 0px;
         padding: 0px; 
+       font-size:1.5vh;
         transform: translateY(-1vh);
     }
 

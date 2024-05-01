@@ -9,7 +9,7 @@
         margin: 0;
         padding: 0;
     }
-input:focus,.sngle:focus {
+input:focus,.input:factive,single:focus,.single:active {
    outline:0;
    border-bottom:1px solid currentColor;
 }

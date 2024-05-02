@@ -14,6 +14,12 @@ const status = document.getElementById('status');document.addEventListener('DOMC
         loadNotes();
         setupVoiceRecognition();
         window.notesLoaded = true;
+        var currentDateSpan = document.getElementById('currentDate');
+    var today = new Date();
+    var dateString = today.toLocaleDateString('cs-CZ', {
+        year: 'numeric', month: 'numeric', day: 'numeric'
+    });
+    currentDateSpan.textContent = dateString;
     }
 });
 

@@ -72,8 +72,7 @@ function startRecognition() {
         const dingSound = document.getElementById('dingSound');
         const statusIndicator = document.getElementById('status');
         statusIndicator.style.color = 'blue'; // default color
-        debugAnnynang();  // Check if annyang started correctly
-
+        annyang.debug([newState=true];
         // Callback when sound is detected
         annyang.addCallback('soundstart', function () {
             dingSound.play();
@@ -118,6 +117,7 @@ function startRecognition() {
         annyang.setLanguage('cs-CZ');
         annyang.start({ autoRestart: true, continuous: false });
         isRecognizing = true;
+ 
     } else {
         alert('Annyang is not loaded!');
     }
@@ -250,11 +250,4 @@ function loadNotes() {
             addNote('noteArea', note.text, note.noteClass, note.time, note.trigger);
         });
     }
-}
-function debugAnnynang() {
-    if (!annynang) {
-        console.error("Annynang is not initialized!");
-        return;
-    }
-    console.log("Annynang status:", annynang.getStatus());
-}
+} 

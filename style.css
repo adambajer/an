@@ -1,258 +1,268 @@
-   
-    * {
-        font-family: "Montserrat", sans-serif;
-        font-size: 1.5vw;
-        /* Font size scales with the viewport width */
-    }
+   * {
+       font-family: "Montserrat", sans-serif;
+       font-size: 1.5vw;
+       /* Font size scales with the viewport width */
+   }
 
-    body {
-        margin: 0;
-        padding: 0;
-    }
-span#status {
-    background: transparent;
-    /* height: 1vw; */
-    display: block;
-    padding: 0.4vw;
-    font-size: 1vw;
-    overflow: hidden;
-    border-radius: 1vw;
-    box-shadow: 0 0 8px 2px currentColor;
-}
-    button {
-        cursor: pointer;
-        border-radius: 0.5vw;
-        border: 0.1vw solid currentColor;
-        padding: 0.2vw;
-        /* Font size for buttons */
-        background-color: transparent;
-        font-size: 1vw;
-    } /* Define colors for each voice trigger */
-.inline-flex div {
-          margin-right: 0.2vw;
-    width: 1.7vw;
-   padding:0.2vw;
-    display: block;
-    height: 1.7vw;
-    overflow: hidden; 
-   border-radius:0.2vw;
-    }
-    .inline-flex div:hover {
-        width: fit-content;
-        color:white;
-    }
+   body {
+       margin: 0;
+       padding: 0;
+   }
 
-    .sheet .note-mel { 
-    border-right: 0.2vw solid #ffd000;
-    }
+   span#status {
+       background: transparent;
+       /* height: 1vw; */
+       display: block;
+       padding: 0.4vw;
+       font-size: 1vw;
+       overflow: hidden;
+       border-radius: 1vw;
+       box-shadow: 0 0 8px 2px currentColor;
+   }
 
-    .inline-flex .note-mel {
-        background:#ffd000;
-        color:#ffd000;
-    }
-    /* Light red for "měl bych" */
-    .sheet .note-musi {
-    border-right: 0.2vw solid #ce00ff; 
-    }
-.inline-flex .note-musi {
-    background:#ce00ff; 
-    color:#ce00ff; 
-}
-.inline-flex .note-mela {
-    background:#ff0000; 
-    color:#ff0000;
-}
-    /* Light blue for "musím" */
-    .sheet .note-mela { 
-    border-right: 5px solid #ff0000;
-    }
+   button {
+       cursor: pointer;
+       border-radius: 0.5vw;
+       border: 0.1vw solid currentColor;
+       padding: 0.2vw;
+       /* Font size for buttons */
+       background-color: transparent;
+       font-size: 1vw;
+   }
 
-.inline-flex .note-musime  {
-    background:#000000;
-    color:#000000;
-}
-    /* Light green for "měla bych" */
-    .sheet .note-musime {
-    border-right: 0.2vw solid #000000;
-        
-    }
+   /* Define colors for each voice trigger */
+   .inline-flex div {
+       margin-right: 0.2vw;
+       width: 1.7vw;
+       padding: 0.2vw;
+       display: block;
+       height: 1.7vw;
+       overflow: hidden;
+       border-radius: 0.2vw;
+   }
 
-    /* Light yellow for "musíme" */
-    .sheet .note-melibysme { 
-    border-right: 0.2vw solid #bf6300; 
-    }
-.inline-flex .note-melibysme  {
-    color:#bf6300;
-    background:#bf6300; 
-}
+   .inline-flex div:hover {
+       width: fit-content;
+       color: white;
+   }
 
-    /* Light orange for "měli bysme" */
-    .sheet .note-melibychom {
-    border-right: 0.2vw solid #0099ff; 
-    }
-  .inline-flex .note-melibychom  {
-    background:#0099ff;
-    color:#0099ff; 
-}
+   .sheet .note-mel {
+       border-right: 0.2vw solid #ffd000;
+   }
+
+   .inline-flex .note-mel {
+       background: #ffd000;
+       color: #ffd000;
+   }
+
+   /* Light red for "měl bych" */
+   .sheet .note-musi {
+       border-right: 0.2vw solid #ce00ff;
+   }
+
+   .inline-flex .note-musi {
+       background: #ce00ff;
+       color: #ce00ff;
+   }
+
+   .inline-flex .note-mela {
+       background: #ff0000;
+       color: #ff0000;
+   }
+
+   /* Light blue for "musím" */
+   .sheet .note-mela {
+       border-right: 5px solid #ff0000;
+   }
+
+   .inline-flex .note-musime {
+       background: #000000;
+       color: #000000;
+   }
+
+   /* Light green for "měla bych" */
+   .sheet .note-musime {
+       border-right: 0.2vw solid #000000;
+
+   }
+
+   /* Light yellow for "musíme" */
+   .sheet .note-melibysme {
+       border-right: 0.2vw solid #bf6300;
+   }
+
+   .inline-flex .note-melibysme {
+       color: #bf6300;
+       background: #bf6300;
+   }
+
+   /* Light orange for "měli bysme" */
+   .sheet .note-melibychom {
+       border-right: 0.2vw solid #0099ff;
+   }
+
+   .inline-flex .note-melibychom {
+       background: #0099ff;
+       color: #0099ff;
+   }
 
 
-    .add-trigger {
-        color: #bf6300;
-    }
+   .add-trigger {
+       color: #bf6300;
+   }
 
-    .add-trigger:hover {
-        background-color: #f0f0f0;
-    }
+   .add-trigger:hover {
+       background-color: #f0f0f0;
+   }
 
-    .note {
-        border: 0.1vw solid #ccc;
-        border-bottom: 0.1vw solid blue;
-        border-radius: 0.8vw;
-        background-color: #ffffff;
-        min-height: 5vh;
-        /* Minimum height */
-        overflow-y: auto;
-        max-height: 30vh;
-        /* Maximum height */
-    }
-input:focus,input:active,input:focus-visible,.single:focus-visible,.single:focus,.single:active {
-   outline:0;
-   border-bottom:1px solid currentColor;
-}
-    .chevron {
-        width: 2vw;
-        height: 2vw;
-    }
+   .note {
+       border: 0.1vw solid #ccc;
+       border-bottom: 0.1vw solid blue;
+       border-radius: 0.8vw;
+       background-color: #ffffff;
+       min-height: 5vh;
+       /* Minimum height */
+       overflow-y: auto;
+       max-height: 30vh;
+       /* Maximum height */
+   }
 
-    .controls {
-        z-index: 9;
-        display: inline-flex;
-        align-items: center;
-    }
+   input:focus, input:active, input:focus-visible, .single:focus-visible, .single:focus, .single:active {
+       outline: 0;
+       border-bottom: 1px solid currentColor;
+   }
 
-    .single {
+   .chevron {
+       width: 2vw;
+       height: 2vw;
+   }
 
-            position: relative;
-    border-top-right-radius: 5px;
-    flex-wrap: wrap;
-    display: flex;
-    border-bottom: 0.001vh solid #9198e5;
-    border-bottom-right-radius: 5px;
-    margin-bottom: 0.2vh;
-    }
+   .controls {
+       z-index: 9;
+       display: inline-flex;
+       align-items: center;
+   }
 
-    .delete {
-        position: absolute;
-        top: 0.5vw;
-        color: red;
-        right: 0vw;
-        border: 0px;
-        padding: 0px; 
-       font-size:1vw;
-        
-    }
+   .single {
 
-    .delete::after {
-        content: "\1F5D1";
-    }
+       position: relative;
+       border-top-right-radius: 5px;
+       flex-wrap: wrap;
+       display: flex;
+       border-bottom: 0.001vh solid #9198e5;
+       border-bottom-right-radius: 5px;
+       margin-bottom: 0.2vh;
+   }
 
-  
+   .delete {
+       position: absolute;
+       top: 0.5vw;
+       color: red;
+       right: 0vw;
+       border: 0px;
+       padding: 0px;
+       font-size: 1vw;
 
-    .single:hover::after {
+   }
+
+   .delete::after {
+       content: "\1F5D1";
+   }
+
+
+
+   .single:hover::after {
        content: attr(data-time);
-  
-    color: black;
-    position: absolute;
-    right: 1vw;
-    font-size: 1vw;
-    transform: translateY(1vh);
-    }
 
-    .single::before {
-        content: attr(data-trigger);
-        padding-right: 0.5vw;
-        /* Right padding */
-    }
+       color: black;
+       position: absolute;
+       right: 1vw;
+       font-size: 1vw;
+       transform: translateY(1vh);
+   }
 
-    .paper {
-        margin: 1vw;
-        box-shadow: 0.2vw 0.2vw 0.9vw rgba(0, 0, 0, 0.3);
-        background-color: #fdfde8;
-        border-radius: 0.5vw;
-        border: 0.1vw solid #ccc;
-        position: relative;
-    }
+   .single::before {
+       content: attr(data-trigger);
+       padding-right: 0.5vw;
+       /* Right padding */
+   }
 
-    .sheet {
-        background-color: #fdfde8;
-        /*  background: repeating-linear-gradient(#fdfde8, #fdfde8 1.7vw, #9198e5 1.8vw, #9198e5 1.81vw); */
+   .paper {
+       margin: 1vw;
+       box-shadow: 0.2vw 0.2vw 0.9vw rgba(0, 0, 0, 0.3);
+       background-color: #fdfde8;
+       border-radius: 0.5vw;
+       border: 0.1vw solid #ccc;
+       position: relative;
+   }
 
-        min-height: 25vh;
-    }
+   .sheet {
+       background-color: #fdfde8;
+       /*  background: repeating-linear-gradient(#fdfde8, #fdfde8 1.7vw, #9198e5 1.8vw, #9198e5 1.81vw); */
 
-    .df {
-        display: inline-flex;
-        flex-direction: row;
-        align-content: center;
-        flex-wrap: nowrap;
-        align-items: center;
-        width: -webkit-fill-available;
-        justify-content: space-between;
-        margin-bottom: 2vh;
-    }
+       min-height: 25vh;
+   }
 
+   .df {
+       display: inline-flex;
+       flex-direction: row;
+       align-content: center;
+       flex-wrap: nowrap;
+       align-items: center;
+       width: -webkit-fill-available;
+       justify-content: space-between;
+       margin-bottom: 2vh;
+   }
+ 
 
-    #currentDate {}
+   .center {
+       text-align: center;
+       /* Center text font size */
+       font-weight: bold;
+   }
 
-    .center {
-        text-align: center;
-        /* Center text font size */
-        font-weight: bold;
-    }
-
-    #manualNoteInput {
-        background: transparent;
-        border: 0;
-    width:-webkit-fill-available;
-        /* Input font size /
+   #manualNoteInput {
+       background: transparent;
+       border: 0;
+       width: -webkit-fill-available;
+       /* Input font size /
             padding-left: 1vw; / Left padding /
             line-height: 1.5vw; / Line height for better readability */
-    }
+   }
+ 
 
-    .bottom {}
+   .inline-flex {
+       display: inline-flex;
+   }
 
-    .inline-flex {
-        display: inline-flex;
-    }
+   .inline-flex div {
+       /* Right padding */
+   }
 
-    .inline-flex div {
-        /* Right padding */
-    }
+   .addnote {
+       display: flex;
+       flex-wrap: nowrap;
+       justify-content: space-between;
+   }
 
-    .addnote {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-    }
+   .shm {
+       border-radius: 0.5vw;
+       padding: 2%;
+       background: #fdfde8;
+       padding-bottom: 6vh;
+   }
 
-    .shm {
-        border-radius: 0.5vw;
-        padding: 2%;
-        background: #fdfde8;
-        padding-bottom: 6vh;
-    }
+   .download {
+       color: blue;
+       position: absolute;
+       bottom: 2vh;
+       bottom: 2vh;
+       right: 2vh;
+   }
 
-    .download {
-        color: blue;
-        position: absolute;
-        bottom: 2vh; 
-         bottom:2vh;
-    right:2vh;
-    }
-
-    #listeningStatus {
-        position: absolute;
-        bottom: 2vh; 
-        margin-top: 20px;
-        font-weight: bold;
-    }
+   #listeningStatus {
+       position: absolute;
+       bottom: 2vh;
+       margin-top: 20px;
+       font-weight: bold;
+   }

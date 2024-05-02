@@ -107,7 +107,9 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
 }
 
 .paper {
+    
     margin: 1vw;
+    margin-top:3vw;
     box-shadow: 0.2vw 0.2vw 0.9vw rgba(0, 0, 0, 0.3);
     background-color: #fdfde8;
     border-radius: 0.5vw;

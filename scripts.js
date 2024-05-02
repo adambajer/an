@@ -35,9 +35,7 @@ function setupVoiceRecognition() {
 
         annyang.addCallback('resultNoMatch', (phrases) => updateStatus('No command recognized', 'red'));
         annyang.addCallback('resultMatch', function (userSaid, commandText, phrases) {
-            console.log(userSaid); // sample output: 'hello'
             console.log(commandText); // sample output: 'hello (there)'
-            console.log(phrases); // sample output: ['hello', 'halo', 'yellow', 'polo', 'hello kitty']
         });
     } else {
         alert('Annyang is not loaded!');

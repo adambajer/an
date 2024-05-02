@@ -15,6 +15,7 @@ const status = document.getElementById('status');document.addEventListener('DOMC
         setupVoiceRecognition();
         window.notesLoaded = true;
         var currentDateSpan = document.getElementById('currentDate');
+        updateStatus("Ready","Blue");
     var today = new Date();
     var dateString = today.toLocaleDateString('cs-CZ', {
         year: 'numeric', month: 'numeric', day: 'numeric'
@@ -99,8 +100,6 @@ function makeNoteEditable(noteElement) {
 }
 
 function updateStatus(message, color) {
-    const status = document.getElementById('status');
-    const listeningStatus = document.getElementById('listeningStatus');
     status.textContent = message;
     listeningStatus.style.color = color;
     setTimeout(() => {

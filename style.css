@@ -10,8 +10,8 @@ body {
 }
 
 span#status {
-    background: transparent;
-    /* height: 1vw; */
+    background: white; 
+    border: 2px solid currentColor;
     display: block;
     transition: all 0.5s linear;
     padding: 0.4vw;

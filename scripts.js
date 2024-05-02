@@ -46,12 +46,15 @@ function setupVoiceRecognition() {
             // Assume the command processing is quick; adjust if not
             setTimeout(() => updateStatus("Ready", "blue"), 1000);
         });
-
-        // Start recognition. Consider continuous and auto-restart based on your app's needs
-        annyang.start({ autoRestart: true, continuous: true });
+ annyang.addCallback('end', () => {
+    console.log("Annyang has stopped listening, restarting...");
+    annyang.start({ autoRestart: true, continuous: true });
     } else {
         alert('Annyang is not loaded!');
     }
+   
+});
+
 }
 function executeCommand(commandText, userSaid) {
     console.log("Executing command:", commandText, "Said:", userSaid);

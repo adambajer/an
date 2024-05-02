@@ -18,7 +18,8 @@
     <div class="paper">
         <div class="shm">
             <div class="df">
-                <span id="currentDate"></span>
+                
+                <div id="listeningStatus"><span id="status">Ready</span></div>
                 <div class="controls" style="top: -190px;">
 
                     <div id="voiceTriggers">
@@ -35,6 +36,8 @@
                         </div>
                         <button onclick="addNewTrigger()" class="add-trigger">ADD</button>
                     </div>
+                    
+                    <span id="currentDate"></span>
                 </div>
             </div>
             <div class="addnote">
@@ -44,7 +47,7 @@
             <div class="sheet">
                 <audio id="dingSound" src="ding.mp3" preload="auto"></audio>
                 <p id="noteArea" class="sheet-text"></p>
-                <div id="listeningStatus"><span id="status">Ready</span></div>
+                
                 <button onclick="downloadNotes()" class="download">DOWNLOAD</button>
             </div>
         </div>

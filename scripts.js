@@ -55,17 +55,11 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 
 function startAnnyang() {
-    annyang.start({ autoRestart: false, continuous: true });    updateStatus("Ready", "blue");
+    annyang.start({ autoRestart: false, continuous: true });               updateStatus('Listening...', 'orange');
+
 
 }
- 
-// Helper function to ensure Annyang is always listening
-function ensureListening() {
-    if (!annyang.isListening()) {
-        console.log("Restarting Annyang...");
-        annyang.start({ autoRestart: true, continuous: true });
-    }
-}
+  
 
 function executeCommand(commandText, userSaid) {
     console.log("Executing command:", commandText, "Said:", userSaid);

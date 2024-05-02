@@ -33,6 +33,9 @@ button {
     background-color: transparent;
     font-size: 1vw;
 }
+.single:hover .delete {
+    display: block;
+}
 
 input:focus, input:active, input:focus-visible, .single:focus-visible, .single:focus, .single:active {
     outline: 0;

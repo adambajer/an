@@ -63,21 +63,26 @@ function addNote(note, noteClass) {
 
 
 function createDeleteButton(noteElement) {
-    // Check if the delete button already exists
+    if (!noteElement) {
+        console.error("createDeleteButton was called without a noteElement");
+        return null; // Early exit if no element is provided
+    }
+
     let deleteButton = noteElement.querySelector('.delete');
     if (!deleteButton) {
         deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
         deleteButton.className = 'delete';
-        deleteButton.style.display = 'none'; // Button hidden initially, shown on hover
+        deleteButton.style.display = 'none';
         deleteButton.onclick = function(event) {
-            event.stopPropagation();  // Prevents the click from affecting parent elements
-            noteElement.remove();     // Removes the note element from the DOM
-            saveNotes();              // Update local storage after deleting the note
+            event.stopPropagation();
+            noteElement.remove();
+            saveNotes();
         };
     }
     return deleteButton;
 }
+
 
 function makeNoteEditable(noteElement) {
     noteElement.contentEditable = true;
@@ -116,11 +121,12 @@ function loadNotes() {
         noteElement.className = 'single ' + noteClass;
         noteElement.textContent = text;
         noteElement.setAttribute('data-datetime', datetime);
-        noteElement.appendChild(createDeleteButton());
+        noteElement.appendChild(createDeleteButton(noteElement));  // Ensure this element is correctly defined
         noteElement.onclick = () => makeNoteEditable(noteElement);
         notesArea.prepend(noteElement);
     });
 }
+
 function addNewTrigger() {
     var newTriggerPhrase = prompt("Please enter your new voice trigger:");
     if (newTriggerPhrase && annyang) {

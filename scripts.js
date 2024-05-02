@@ -40,14 +40,14 @@ document.addEventListener('DOMContentLoaded', function () {
         annyang.addCallback('resultNoMatch', (phrases) => {
             console.log('No command recognized:', phrases);
             updateStatus('Command not recognized', 'red');
-            setTimeout(() => restartAnnyang(), 3000); // Restart after a brief pause
+            setTimeout(() => startAnnyang(), 3000); // Restart after a brief pause
         });
 
         // Handle command match
         annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
             console.log('Command recognized:', commandText);
             updateStatus(`Command recognized: ${commandText}`, 'green');
-            setTimeout(() => restartAnnyang(), 1000); // Restart after processing the command
+            setTimeout(() => startAnnyang(), 1000); // Restart after processing the command
         });
     } else {
         alert('Annyang is not loaded!');
@@ -55,15 +55,10 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 
 function startAnnyang() {
-    annyang.start({ autoRestart: false, continuous: true });
-}
+    annyang.start({ autoRestart: false, continuous: true });    updateStatus("Ready", "blue");
 
-function restartAnnyang() {
-    annyang.abort(); // Stop Annyang explicitly
-    startAnnyang();  // Start Annyang again
-    updateStatus("Ready", "blue");
 }
-
+ 
 // Helper function to ensure Annyang is always listening
 function ensureListening() {
     if (!annyang.isListening()) {

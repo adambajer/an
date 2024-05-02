@@ -34,36 +34,41 @@ function setupVoiceRecognition() {
             updateStatus('Listening...', 'orange');
         });
 
-        // When no command matches
+        // Handle no command match
         annyang.addCallback('resultNoMatch', (phrases) => {
             console.log('No command recognized:', phrases);
             updateStatus('Command not recognized', 'red');
+            // Briefly delay then ensure Annyang remains ready and listening
             setTimeout(() => {
                 updateStatus("Ready", "blue");
-                annyang.start({ autoRestart: true, continuous: true });  // Ensure restart
+                ensureListening(); // Explicitly check if Annyang needs restarting
             }, 3000);
         });
 
-        // When a command matches
+        // Handle command match
         annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
             console.log('Command recognized:', commandText);
             updateStatus(`Command recognized: ${commandText}`, 'green');
+            executeCommand(commandText, userSaid); // Assuming command execution is handled
+            // Briefly delay then ensure Annyang remains ready and listening
             setTimeout(() => {
                 updateStatus("Ready", "blue");
-                annyang.start({ autoRestart: true, continuous: true });  // Ensure restart
+                ensureListening(); // Explicitly check if Annyang needs restarting
             }, 1000);
         });
 
-        // When listening ends, attempt to restart
-        annyang.addCallback('end', () => {
-            console.log("Annyang has stopped listening, restarting...");
-            annyang.start({ autoRestart: true, continuous: true });
-        });
-
         // Start listening
-        annyang.start({ autoRestart: true, continuous: true });
+        ensureListening();
     } else {
         alert('Annyang is not loaded!');
+    }
+}
+
+// Helper function to ensure Annyang is always listening
+function ensureListening() {
+    if (!annyang.isListening()) {
+        console.log("Restarting Annyang...");
+        annyang.start({ autoRestart: true, continuous: true });
     }
 }
 

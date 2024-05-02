@@ -123,7 +123,7 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
 }
 
 .df {
-    display: inline-flex;
+      display: inline-flex;
     flex-direction: row;
     align-content: center;
     flex-wrap: nowrap;
@@ -131,6 +131,16 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
     width: -webkit-fill-available;
     justify-content: space-between;
     margin-bottom: 2vh;
+    position: fixed;
+    z-index: 999999;
+    background: #ffffff7a;
+    padding: 1vw;
+    border-radius: 1vw;
+    left: 0;
+    top: 0.5vw;
+    margin: 0.5vw;
+    backdrop-filter: blur(7px);
+    border: 1px solid #ccc;
 }
 
 

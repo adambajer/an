@@ -133,7 +133,7 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
     margin-bottom: 2vh;
     position: fixed;
     z-index: 999999;
-    background: #ffffffc9;
+    background: #ffffff;
     padding: 1vw;
     border-radius: 1vw;
     left: 0;

@@ -34,10 +34,11 @@
    /* Define colors for each voice trigger */
    .inline-flex div {
        margin-right: 0.2vw;
-       width: 1.7vw;
+       width: 1.2vw;
        padding: 0.2vw;
        display: block;
-       height: 1.7vw;
+       height: 1.2vw;
+       font-size: 1vw;
        overflow: hidden;
        border-radius: 0.2vw;
        transition: all 0.5s linear;

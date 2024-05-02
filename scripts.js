@@ -67,12 +67,12 @@ function startRecognition() {
         annyang.addCallback('resultMatch', function () {
             dingSound.play();
             status.textContent = 'Command recognized'; 
-            statusIndicator.textContent = 'green';
+            listeningStatus.textContent = 'green';
             // Reset color after 3 seconds
             setTimeout(function () {
                 
                 status.textContent = 'Ready';
-                statusIndicator.style.color =  'blue';
+                listeningStatus.style.color =  'blue';
             }, 3000);
         });
 

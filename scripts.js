@@ -54,7 +54,7 @@ function startRecognition() {
     if (annyang) {
         const dingSound = document.getElementById('dingSound');
          
-        statusIndicator.style.color = 'blue'; // default color
+        listeningStatus.style.color = 'blue'; // default color
         annyang.debug([newState=true]);
         // Callback when sound is detected
         annyang.addCallback('soundstart', function () {

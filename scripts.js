@@ -7,6 +7,9 @@ var triggerPhraseMap = {
     'note-melibychom': 'Měli bychom',
     'custom-trigger': 'Custom' // Default phrase for custom triggers
 };
+
+const listeningStatus = document.getElementById('listeningStatus');
+const statusIndicator = document.getElementById('status');
 document.addEventListener('DOMContentLoaded', function () {
     initializeApp();
     var currentDateSpan = document.getElementById('currentDate');
@@ -15,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
         year: 'numeric', month: 'numeric', day: 'numeric'
     });
     currentDateSpan.textContent = dateString;
+    
 });
 
 
@@ -26,14 +30,7 @@ function initializeApp() {
     }
 }
 
-function toggleControls() {
-    var controls = document.querySelector('.controls');
-    if (controls.style.top === '-190px') {
-        controls.style.top = '0px';
-    } else {
-        controls.style.top = '-190px';
-    }
-}
+ 
 
 function addManualNote() {
     var noteInput = document.getElementById('manualNoteInput');
@@ -51,43 +48,29 @@ function makeNoteEditable(noteElement) {
         saveNotes();
     };
 }
-
-function toggleRecognition() {
-    var startButton = document.querySelector('.startb');
-    if (!isRecognizing) {
-        startRecognition();
-        startButton.classList.add('stop');
-        startButton.classList.remove('start');
-        startButton.textContent = 'STOP';
-    } else {
-        stopRecognition();
-        startButton.classList.add('start');
-        startButton.classList.remove('stop');
-        startButton.textContent = 'START';
-    }
-}
+ 
 
 function startRecognition() {
     if (annyang) {
         const dingSound = document.getElementById('dingSound');
-        const statusIndicator = document.getElementById('status');
+         
         statusIndicator.style.color = 'blue'; // default color
         annyang.debug([newState=true]);
         // Callback when sound is detected
         annyang.addCallback('soundstart', function () {
             dingSound.play();
             statusIndicator.textContent = 'Listening...';
-            statusIndicator.style.color = 'orange';
+            listeningStatus.style.color = 'orange';
         });
 
         // Callback for successful command recognition
         annyang.addCallback('resultMatch', function () {
             dingSound.play();
             statusIndicator.textContent = 'Command recognized';
-            statusIndicator.style.color = 'green';
+            listeningStatus.style.color = 'green';
             // Reset color after 3 seconds
             setTimeout(function () {
-                statusIndicator.style.color = 'blue';
+                listeningStatus.style.color = 'blue';
                 statusIndicator.textContent = 'Ready';
             }, 3000);
         });
@@ -97,11 +80,11 @@ function startRecognition() {
             console.log('No command recognized', phrases);
             dingSound.play();
             statusIndicator.textContent = 'No command recognized';
-            statusIndicator.style.color = 'red';
+            listeningStatus.style.color = 'red';
             // Reset color after 3 seconds
             setTimeout(function () {
                 statusIndicator.style.color = 'blue';
-                statusIndicator.textContent = 'Ready';
+                listeningStatus.textContent = 'Ready';
             }, 3000);
         });
 

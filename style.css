@@ -13,6 +13,7 @@
        background: transparent;
        /* height: 1vw; */
        display: block;
+       transition: all 0.5s linear;
        padding: 0.4vw;
        font-size: 1vw;
        overflow: hidden;
@@ -39,11 +40,17 @@
        height: 1.7vw;
        overflow: hidden;
        border-radius: 0.2vw;
+       transition: all 0.5s linear;
    }
 
    .inline-flex div:hover {
+    transition: all 0.5s linear;
        width: fit-content;
-       color: white;
+       color: currentColor;
+       background: transparent;
+       border: 1px solid currentColor;
+       box-shadow: 0.2vw 0.2vw 0.9vw currentColor;
+
    }
 
    .sheet .note-mel {

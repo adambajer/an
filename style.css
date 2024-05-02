@@ -10,11 +10,11 @@
         padding: 0;
     }
 span#status {
-background: transparent;
-     height: 1vw;
+    background: transparent;
+    /* height: 1vw; */
     display: block;
-    padding: 0.2vw;
-    font-size: 0.8vw;
+    padding: 0.4vw;
+    font-size: 1vw;
     overflow: hidden;
     border-radius: 1vw;
     box-shadow: 0 0 8px 2px currentColor;

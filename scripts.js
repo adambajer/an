@@ -60,11 +60,14 @@ function createDeleteButton(noteElement) {
     deleteButton.textContent = 'Delete';
     deleteButton.className = 'delete';
     deleteButton.style.display = 'none';  // Button hidden initially, shown on hover
-    deleteButton.onclick = function(event) {
-        event.stopPropagation();  // Prevents the click from affecting parent elements
-        noteElement.remove();     // Removes the note element from the DOM
-        saveNotes();              // Update local storage after deleting the note
-    };
+  deleteButton.onclick = function(event) {
+    console.log("Delete button clicked for:", noteElement);
+    event.stopPropagation();
+    noteElement.remove();
+    saveNotes();
+    console.log("Note deleted and saved.");
+};
+
     return deleteButton;
 }
 

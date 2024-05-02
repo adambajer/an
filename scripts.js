@@ -47,16 +47,15 @@ function addNote(note, noteClass) {
 
     let noteElement = document.createElement('div');
     noteElement.className = 'single ' + noteClass;
-    noteElement.textContent = `${triggerPhraseMap[noteClass]} ${note}`;
     noteElement.setAttribute('data-datetime', datetime);
 
-    // Append the delete button only if it doesn't already exist
-    if (!noteElement.querySelector('.delete')) {
-        noteElement.appendChild(createDeleteButton(noteElement));
-    }
+    let textSpan = document.createElement('span');  // Use a span to hold the text content
+    textSpan.textContent = `${triggerPhraseMap[noteClass] || 'Custom Note'}: ${note}`;
+    noteElement.appendChild(textSpan);
 
+    noteElement.appendChild(createDeleteButton(noteElement));
     noteElement.onclick = () => makeNoteEditable(noteElement);
-    noteArea.prepend(noteElement); // Adds new notes to the top
+    noteArea.prepend(noteElement);
     saveNotes();
 }
 
@@ -137,15 +136,24 @@ function loadNotes() {
 function addNewTrigger() {
     var newTriggerPhrase = prompt("Please enter your new voice trigger:");
     if (newTriggerPhrase && annyang) {
+        // Define the action for the new trigger
         var command = {};
         command[newTriggerPhrase + ' *note'] = function (note) {
-            addNote(note, 'custom-' + newTriggerPhrase);
+            // Ensure we're passing the correct trigger class to addNote
+            addNote(note, 'note-' + newTriggerPhrase);
         };
+
+        // Add the new command to annyang
         annyang.addCommands(command);
+
+        // Update the triggerPhraseMap with the new trigger
         triggerPhraseMap['note-' + newTriggerPhrase] = newTriggerPhrase;
+
+        // Update UI list of triggers if necessary
         updateTriggerList(newTriggerPhrase);
     }
 }
+
 
 function updateTriggerList(triggerPhrase) {
     var triggerContainer = document.getElementById('voiceTriggers');

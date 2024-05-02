@@ -9,13 +9,13 @@ var triggerPhraseMap = {
 };
 
 const listeningStatus = document.getElementById('listeningStatus');
-const status = document.getElementById('status'); document.addEventListener('DOMContentLoaded', function () {
+const status = document.getElementById('status'); 
+document.addEventListener('DOMContentLoaded', function () {
     if (!window.notesLoaded) {
         loadNotes();
         setupVoiceRecognition();
         window.notesLoaded = true;
         var currentDateSpan = document.getElementById('currentDate');
-        updateStatus("Ready", "Blue");
         var today = new Date();
         var dateString = today.toLocaleDateString('cs-CZ', {
             year: 'numeric', month: 'numeric', day: 'numeric'
@@ -27,7 +27,6 @@ function setupVoiceRecognition() {
     if (annyang) {
         annyang.setLanguage('cs-CZ');
         annyang.addCommands(setupCommands());
-        annyang.start({ autoRestart: true, continuous: true });
 
         // Listening starts
         annyang.addCallback('soundstart', () => updateStatus('Listening...', 'orange'));
@@ -45,9 +44,9 @@ function setupVoiceRecognition() {
             // Reset status to "Ready" after processing is complete (assumed to be immediate here)
             setTimeout(() => updateStatus("Ready", "blue"), 3000);
         });
+        annyang.start({ autoRestart:false, continuous: false });
 
         // Listening ends (Optional, depending on need)
-        annyang.addCallback('end', () => updateStatus('Idle', 'black'));
     } else {
         alert('Annyang is not loaded!');
     }
@@ -81,7 +80,6 @@ function addNote(note, noteClass) {
     noteElement.onclick = () => makeNoteEditable(noteElement);
     noteArea.prepend(noteElement);
     saveNotes();
-    updateStatus("Ready", "blue");
 }
 
 

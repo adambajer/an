@@ -23,24 +23,36 @@ const status = document.getElementById('status'); document.addEventListener('DOM
         currentDateSpan.textContent = dateString;
     }
 });
-
 function setupVoiceRecognition() {
     if (annyang) {
         annyang.setLanguage('cs-CZ');
         annyang.addCommands(setupCommands());
         annyang.start({ autoRestart: true, continuous: true });
+
+        // Listening starts
         annyang.addCallback('soundstart', () => updateStatus('Listening...', 'orange'));
-        annyang.addCallback('end', () => updateStatus('End...', 'black'));
 
-
-        annyang.addCallback('resultNoMatch', (phrases) => updateStatus('No command recognized', 'red'));
-        annyang.addCallback('resultMatch', function (userSaid, commandText, phrases) {
-            console.log(userSaid); // sample output: 'hello (there)'
+        // No command matched
+        annyang.addCallback('resultNoMatch', (phrases) => {
+            updateStatus('No command recognized', 'red');
+            // Schedule a status reset to "Ready" after a delay
+            setTimeout(() => updateStatus("Ready", "blue"), 3000);
         });
+
+        // Command matched
+        annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
+            updateStatus(`Command recognized: ${commandText}`, 'green');
+            // Reset status to "Ready" after processing is complete (assumed to be immediate here)
+            setTimeout(() => updateStatus("Ready", "blue"), 3000);
+        });
+
+        // Listening ends (Optional, depending on need)
+        annyang.addCallback('end', () => updateStatus('Microphone off', 'black'));
     } else {
         alert('Annyang is not loaded!');
     }
 }
+
 
 function setupCommands() {
     var commands = {};

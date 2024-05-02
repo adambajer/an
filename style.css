@@ -183,7 +183,7 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
 
  
 .add-trigger {
-    width:1.2VW;
+    min-width:1.8VW;
 /* Define colors for each voice trigger */
 }
 

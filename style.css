@@ -86,13 +86,15 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
 
 .single:hover .delete {
     display: block !important;
+    position:absolute;
+    right:0vh;
 }
 
 
 .single:hover::before {
     content: attr(data-datetime);
 position:absolute;
-    left:0px;
+    right:2vw;
     display:block;
   
     font-size: 1vw; 

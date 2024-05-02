@@ -44,30 +44,38 @@ function addNote(note, noteClass) {
         year: 'numeric', month: 'numeric', day: 'numeric',
         hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
     });
-    const noteElement = document.createElement('div');
+
+    let noteElement = document.createElement('div');
     noteElement.className = 'single ' + noteClass;
     noteElement.textContent = `${triggerPhraseMap[noteClass]} ${note}`;
     noteElement.setAttribute('data-datetime', datetime);
-    noteElement.appendChild(createDeleteButton(noteElement));  // Attach delete button
+
+    // Append the delete button only if it doesn't already exist
+    if (!noteElement.querySelector('.delete')) {
+        noteElement.appendChild(createDeleteButton(noteElement));
+    }
+
     noteElement.onclick = () => makeNoteEditable(noteElement);
     noteArea.prepend(noteElement); // Adds new notes to the top
     saveNotes();
 }
 
 
-function createDeleteButton(noteElement) {
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
-    deleteButton.className = 'delete';
-    deleteButton.style.display = 'none';  // Button hidden initially, shown on hover
-  deleteButton.onclick = function(event) {
-    console.log("Delete button clicked for:", noteElement);
-    event.stopPropagation();
-    noteElement.remove();
-    saveNotes();
-    console.log("Note deleted and saved.");
-};
 
+function createDeleteButton(noteElement) {
+    // Check if the delete button already exists
+    let deleteButton = noteElement.querySelector('.delete');
+    if (!deleteButton) {
+        deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.className = 'delete';
+        deleteButton.style.display = 'none'; // Button hidden initially, shown on hover
+        deleteButton.onclick = function(event) {
+            event.stopPropagation();  // Prevents the click from affecting parent elements
+            noteElement.remove();     // Removes the note element from the DOM
+            saveNotes();              // Update local storage after deleting the note
+        };
+    }
     return deleteButton;
 }
 

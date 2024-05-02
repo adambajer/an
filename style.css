@@ -23,7 +23,9 @@ span#status {
     border-radius: 1vw;
     box-shadow: 0 0 14px 0px currentColor;
 }
-
+.commands {
+    font-size:1vw;
+}
 button {
     cursor: pointer;
     border-radius: 0.5vw;

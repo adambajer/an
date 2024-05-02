@@ -82,7 +82,7 @@ function startRecognition() {
             listeningStatus.style.color = 'red';
             // Reset color after 3 seconds
             setTimeout(function () {
-                status.style.color = 'Ready'; 
+             status.textContent = 'Ready';
                 listeningStatus.style.color = 'blue';
 
             }, 3000);

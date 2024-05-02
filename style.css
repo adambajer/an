@@ -16,14 +16,13 @@ span#status {
 }
 #listeningStatus {
    
-    border: 2px solid currentColor;
-    
+     border: 1px solid currentColor;
     transition: all 0.5s linear;
     padding: 0.4vw;
     font-size: 1vw;
     overflow: hidden;
     border-radius: 1vw;
-    box-shadow: 0 0 8px 2px currentColor;
+    box-shadow: 0 0 14px 0px currentColor;
 }
 
 button {

@@ -82,7 +82,7 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
 
 .delete {
     position: absolute;
-    top: 0.2vw;
+    top: 0.4vw;
     color: red;
     right: 0.5vw;
     border: 0px;

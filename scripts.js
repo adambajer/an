@@ -22,11 +22,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         currentDateSpan.textContent = dateString;
     }
-});
-function setupVoiceRecognition() {
+});function setupVoiceRecognition() {
     if (annyang) {
         annyang.setLanguage('cs-CZ');
         annyang.addCommands(setupCommands());
+
+        // Always ensure Annyang starts fresh
+        startAnnyang();
 
         // When sound starts, indicate listening
         annyang.addCallback('soundstart', () => {
@@ -38,30 +40,28 @@ function setupVoiceRecognition() {
         annyang.addCallback('resultNoMatch', (phrases) => {
             console.log('No command recognized:', phrases);
             updateStatus('Command not recognized', 'red');
-            // Briefly delay then ensure Annyang remains ready and listening
-            setTimeout(() => {
-                updateStatus("Ready", "blue");
-                ensureListening(); // Explicitly check if Annyang needs restarting
-            }, 3000);
+            setTimeout(() => restartAnnyang(), 3000); // Restart after a brief pause
         });
 
         // Handle command match
         annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
             console.log('Command recognized:', commandText);
             updateStatus(`Command recognized: ${commandText}`, 'green');
-            executeCommand(commandText, userSaid); // Assuming command execution is handled
-            // Briefly delay then ensure Annyang remains ready and listening
-            setTimeout(() => {
-                updateStatus("Ready", "blue");
-                ensureListening(); // Explicitly check if Annyang needs restarting
-            }, 1000);
+            setTimeout(() => restartAnnyang(), 1000); // Restart after processing the command
         });
-
-        // Start listening
-        ensureListening();
     } else {
         alert('Annyang is not loaded!');
     }
+}
+
+function startAnnyang() {
+    annyang.start({ autoRestart: false, continuous: true });
+}
+
+function restartAnnyang() {
+    annyang.abort(); // Stop Annyang explicitly
+    startAnnyang();  // Start Annyang again
+    updateStatus("Ready", "blue");
 }
 
 // Helper function to ensure Annyang is always listening

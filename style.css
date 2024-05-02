@@ -12,7 +12,7 @@ body {
 span#status {
     
     transition: all 0.5s linear; 
-    font-size: 1vw;v
+    font-size: 1vw;width:4vw;
 }
 #listeningStatus {
    
@@ -50,6 +50,8 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
     border-bottom: 0.001vh solid #9198e5;
     border-bottom-right-radius: 5px;
     margin-bottom: 0.2vh;
+    
+    color: #00085c;
 }
 
 

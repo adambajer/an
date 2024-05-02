@@ -58,15 +58,13 @@ function startRecognition() {
         annyang.debug([newState=true]);
         // Callback when sound is detected
         annyang.addCallback('soundstart', function () {
-            dingSound.play();
-            status.textContent = 'Listening...';
+             status.textContent = 'Listening...';
             listeningStatus.style.color = 'orange';
         });
 
         // Callback for successful command recognition
         annyang.addCallback('resultMatch', function () {
-            dingSound.play();
-            status.textContent = 'Command recognized';  
+             status.textContent = 'Command recognized';  
                             listeningStatus.style.color =  'green';
 
             // Reset color after 3 seconds
@@ -80,13 +78,12 @@ function startRecognition() {
         // Callback for no command recognized
         annyang.addCallback('resultNoMatch', function (phrases) {
             console.log('No command recognized', phrases);
-            dingSound.play();
-            status.textContent = 'No command recognized';
+             status.textContent = 'No command recognized';
             listeningStatus.style.color = 'red';
             // Reset color after 3 seconds
             setTimeout(function () {
                 status.style.color = 'Ready'; 
-                listeningStatus.style.color = 'red';
+                listeningStatus.style.color = 'blue';
 
             }, 3000);
         });

@@ -34,9 +34,9 @@ function setupVoiceRecognition() {
 
         // No command matched
         annyang.addCallback('resultNoMatch', (phrases) => {
-            updateStatus('No command recognized', 'red');
+            updateStatus('Command not recognized', 'red');
             // Schedule a status reset to "Ready" after a delay
-            setTimeout(() => updateStatus("Ready", "blue"), 3000);
+            setTimeout(() => updateStatus("Ready", "blue"), 500);
         });
 
         // Command matched
@@ -47,7 +47,7 @@ function setupVoiceRecognition() {
         });
 
         // Listening ends (Optional, depending on need)
-        annyang.addCallback('end', () => updateStatus('Microphone off', 'black'));
+        annyang.addCallback('end', () => updateStatus('Idle', 'black'));
     } else {
         alert('Annyang is not loaded!');
     }

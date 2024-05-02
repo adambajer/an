@@ -106,10 +106,7 @@ function makeNoteEditable(noteElement) {
 function updateStatus(message, color) {
     status.textContent = message;
     listeningStatus.style.color = color;
-    setTimeout(() => {
-        status.textContent = 'Ready';
-        listeningStatus.style.color = 'blue';
-    }, 3000);
+ 
 }
 
 function saveNotes() {

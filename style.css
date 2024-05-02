@@ -109,8 +109,7 @@ color:#9198e5;
 .single::before {
     content: attr(data-trigger);
     padding-right: 0.5vw;
-    /* Right padding */
-    color:#9198e5;
+    /* Right padding */ 
 }
 
 .paper {

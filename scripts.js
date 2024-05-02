@@ -50,7 +50,7 @@ function addNote(note, noteClass) {
     noteElement.setAttribute('data-datetime', datetime);
 
     let textSpan = document.createElement('span');  // Use a span to hold the text content
-    textSpan.textContent = `${triggerPhraseMap[noteClass] || 'Custom Note'}: ${note}`;
+    textSpan.textContent = `${triggerPhraseMap[noteClass] || 'Custom Note'} ${note}`;
     noteElement.appendChild(textSpan);
 
     noteElement.appendChild(createDeleteButton(noteElement));
@@ -131,6 +131,22 @@ function loadNotes() {
         noteElement.onclick = () => makeNoteEditable(noteElement);
         notesArea.prepend(noteElement);
     });
+}
+function downloadNotes() {
+    var notes = document.querySelectorAll('.single');
+    var content = 'Your Notes:\n';
+    notes.forEach(function(note) {
+        var datetime = note.getAttribute('data-datetime');
+        var text = note.querySelector('span').textContent; // Assuming text is within a <span>
+        content += `${datetime} - ${text}\n`;
+    });
+    var blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'notes.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 }
 
 function addNewTrigger() {

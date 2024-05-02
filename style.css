@@ -32,27 +32,7 @@
    }
 
    /* Define colors for each voice trigger */
-   .inline-flex div {
-       margin-right: 0.2vw;
-       width: 1.2vw;
-       padding: 0.2vw;
-       display: block;
-       height: 1.2vw;
-       font-size: 1vw;
-       overflow: hidden;
-       border-radius: 0.2vw;
-       transition: all 0.5s linear;
-   }
-
-   .inline-flex div:hover {
-    transition: all 0.5s linear;
-       width: fit-content;
-       color: currentColor;
-       background: transparent;
-       border: 1px solid currentColor;
-       box-shadow: 0.2vw 0.2vw 0.9vw currentColor;
-
-   }
+  
 
    .sheet .note-mel {
        border-right: 0.2vw solid #ffd000;
@@ -113,7 +93,27 @@
        background: #0099ff;
        color: #0099ff;
    }
+   .inline-flex div {
+    margin-right: 0.2vw;
+    width: 1.2vw;
+    padding: 0.2vw;
+    display: block;
+    height: 1.2vw;
+    font-size: 1vw;
+    overflow: hidden;
+    border-radius: 0.2vw;
+    transition: all 0.5s linear;
+}
 
+.inline-flex div:hover {
+ transition: all 0.5s linear;
+    width: fit-content;
+    color: currentColor;
+    background: transparent;
+    border: 1px solid currentColor;
+    box-shadow: 0.2vw 0.2vw 0.9vw currentColor;
+
+}
 
    .add-trigger {
        color: #bf6300;

@@ -32,20 +32,45 @@
    }
 
    /* Define colors for each voice trigger */
-  
+
 
    .sheet .note-mel {
        border-right: 0.2vw solid #ffd000;
    }
 
-   .inline-flex .note-mel {
-       background: #ffd000;
-       color: #ffd000;
-   }
+
 
    /* Light red for "měl bych" */
    .sheet .note-musi {
        border-right: 0.2vw solid #ce00ff;
+   }
+
+
+
+   /* Light blue for "musím" */
+   .sheet .note-mela {
+       border-right: 0.2vw solid #ff0000;
+   }
+
+   /* Light green for "měla bych" */
+   .sheet .note-musime {
+       border-right: 0.2vw solid #000000;
+
+   }
+
+   /* Light orange for "měli bysme" */
+   .sheet div.note-melibychom {
+       border-right: 0.2vw solid #0099ff;
+   }
+
+   /* Light yellow for "musíme" */
+   .sheet .note-melibysme {
+       border-right: 0.2vw solid #bf6300;
+   }
+
+   .inline-flex .note-mel {
+       background: #ffd000;
+       color: #ffd000;
    }
 
    .inline-flex .note-musi {
@@ -58,25 +83,9 @@
        color: #ff0000;
    }
 
-   /* Light blue for "musím" */
-   .sheet .note-mela {
-       border-right: 5px solid #ff0000;
-   }
-
-   .inline-flex .note-musime {
+   .inline-flex div.note-musime {
        background: #000000;
        color: #000000;
-   }
-
-   /* Light green for "měla bych" */
-   .sheet .note-musime {
-       border-right: 0.2vw solid #000000;
-
-   }
-
-   /* Light yellow for "musíme" */
-   .sheet .note-melibysme {
-       border-right: 0.2vw solid #bf6300;
    }
 
    .inline-flex .note-melibysme {
@@ -84,36 +93,33 @@
        background: #bf6300;
    }
 
-   /* Light orange for "měli bysme" */
-   .sheet .note-melibychom {
-       border-right: 0.2vw solid #0099ff;
-   }
+
 
    .inline-flex .note-melibychom {
        background: #0099ff;
        color: #0099ff;
+   } 
+
+   .inline-flex div {    display: inline-flex;
+
+       margin-right: 0.2vw;
+       width: 1.2vw;
+       padding: 0.2vw;
+       display: block;
+       height: 1.2vw;
+       font-size: 1vw;
+       overflow: hidden;
+       border-radius: 0.2vw;
+    }
+
+   .inline-flex div:hover {
+       transition: all 0.5s linear;
+       width: fit-content;
+        background: transparent;
+       border: 1px solid currentColor;
+       box-shadow: 0.2vw 0.2vw 0.9vw currentColor;
+
    }
-   .inline-flex div {
-    margin-right: 0.2vw;
-    width: 1.2vw;
-    padding: 0.2vw;
-    display: block;
-    height: 1.2vw;
-    font-size: 1vw;
-    overflow: hidden;
-    border-radius: 0.2vw;
-    transition: all 0.5s linear;
-}
-
-.inline-flex div:hover {
- transition: all 0.5s linear;
-    width: fit-content;
-    color: currentColor;
-    background: transparent;
-    border: 1px solid currentColor;
-    box-shadow: 0.2vw 0.2vw 0.9vw currentColor;
-
-}
 
    .add-trigger {
        color: #bf6300;
@@ -166,7 +172,7 @@
        position: absolute;
        top: 0.5vw;
        color: red;
-       right: 0vw;
+       right: 0.5vw;
        border: 0px;
        padding: 0px;
        font-size: 1vw;
@@ -221,7 +227,7 @@
        justify-content: space-between;
        margin-bottom: 2vh;
    }
- 
+
 
    .center {
        text-align: center;
@@ -237,16 +243,9 @@
             padding-left: 1vw; / Left padding /
             line-height: 1.5vw; / Line height for better readability */
    }
- 
 
-   .inline-flex {
-       display: inline-flex;
-   }
 
-   .inline-flex div {
-       /* Right padding */
-   }
-
+   
    .addnote {
        display: flex;
        flex-wrap: nowrap;

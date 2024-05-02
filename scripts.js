@@ -48,22 +48,24 @@ function addNote(note, noteClass) {
     noteElement.className = 'single ' + noteClass;
     noteElement.textContent = `${triggerPhraseMap[noteClass]} ${note}`;
     noteElement.setAttribute('data-datetime', datetime);
-    noteElement.appendChild(createDeleteButton());
+    noteElement.appendChild(createDeleteButton(noteElement));  // Attach delete button
     noteElement.onclick = () => makeNoteEditable(noteElement);
-    noteArea.prepend(noteElement); // Prepend to add new notes to the top
+    noteArea.prepend(noteElement); // Adds new notes to the top
     saveNotes();
 }
 
-function createDeleteButton() {
-    const button = document.createElement('button');
-    button.textContent = 'Delete';
-    button.className = 'delete';
-    button.style.display = 'none';
-    button.onclick = function(event) {
-        event.target.parentNode.remove();
-        saveNotes();
+
+function createDeleteButton(noteElement) {
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.className = 'delete';
+    deleteButton.style.display = 'none';  // Button hidden initially, shown on hover
+    deleteButton.onclick = function(event) {
+        event.stopPropagation();  // Prevents the click from affecting parent elements
+        noteElement.remove();     // Removes the note element from the DOM
+        saveNotes();              // Update local storage after deleting the note
     };
-    return button;
+    return deleteButton;
 }
 
 function makeNoteEditable(noteElement) {
@@ -131,3 +133,11 @@ function updateTriggerList(triggerPhrase) {
         innerContainer.appendChild(newTriggerDiv);
     }
 }
+function addManualNote() {
+    var noteInput = document.getElementById('manualNoteInput');
+    if (noteInput.value.trim() !== '') {
+        addNote('noteArea', noteInput.value, 'manual-note');
+        noteInput.value = ''; // Clear input after adding
+    }
+}
+

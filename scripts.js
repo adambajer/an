@@ -84,7 +84,7 @@ function startRecognition() {
             listeningStatus.style.color = 'red';
             // Reset color after 3 seconds
             setTimeout(function () {
-                statusIndicator.style.color = 'Ready'; 
+                status.style.color = 'Ready'; 
                 listeningStatus.style.color = 'red';
 
             }, 3000);

@@ -28,29 +28,39 @@ function setupVoiceRecognition() {
         annyang.setLanguage('cs-CZ');
         annyang.addCommands(setupCommands());
 
+        // When sound starts, indicate listening
         annyang.addCallback('soundstart', () => {
-            console.log('Listening started...');
+            console.log('Listening...');
             updateStatus('Listening...', 'orange');
         });
 
+        // When no command matches
         annyang.addCallback('resultNoMatch', (phrases) => {
             console.log('No command recognized:', phrases);
             updateStatus('Command not recognized', 'red');
-            setTimeout(() => updateStatus("Ready", "blue"), 3000);
+            setTimeout(() => {
+                updateStatus("Ready", "blue");
+                annyang.start({ autoRestart: true, continuous: true });  // Ensure restart
+            }, 3000);
         });
 
+        // When a command matches
         annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
             console.log('Command recognized:', commandText);
             updateStatus(`Command recognized: ${commandText}`, 'green');
-            setTimeout(() => updateStatus("Ready", "blue"), 1000);
+            setTimeout(() => {
+                updateStatus("Ready", "blue");
+                annyang.start({ autoRestart: true, continuous: true });  // Ensure restart
+            }, 1000);
         });
 
+        // When listening ends, attempt to restart
         annyang.addCallback('end', () => {
-            console.log("Annyang has stopped listening, attempting to restart...");
+            console.log("Annyang has stopped listening, restarting...");
             annyang.start({ autoRestart: true, continuous: true });
         });
 
-        // Initial start
+        // Start listening
         annyang.start({ autoRestart: true, continuous: true });
     } else {
         alert('Annyang is not loaded!');

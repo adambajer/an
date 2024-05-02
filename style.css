@@ -86,7 +86,7 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
     border: 0px;
     padding: 0px;
     font-size: 1vw;
-
+color:#9198e5;
 }
 
 .delete::after {
@@ -109,6 +109,7 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
     content: attr(data-trigger);
     padding-right: 0.5vw;
     /* Right padding */
+    color:#9198e5;
 }
 
 .paper {

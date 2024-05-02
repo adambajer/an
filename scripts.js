@@ -9,18 +9,18 @@ var triggerPhraseMap = {
 };
 
 const listeningStatus = document.getElementById('listeningStatus');
-const status = document.getElementById('status');document.addEventListener('DOMContentLoaded', function() {
+const status = document.getElementById('status'); document.addEventListener('DOMContentLoaded', function () {
     if (!window.notesLoaded) {
         loadNotes();
         setupVoiceRecognition();
         window.notesLoaded = true;
         var currentDateSpan = document.getElementById('currentDate');
-        updateStatus("Ready","Blue");
-    var today = new Date();
-    var dateString = today.toLocaleDateString('cs-CZ', {
-        year: 'numeric', month: 'numeric', day: 'numeric'
-    });
-    currentDateSpan.textContent = dateString;
+        updateStatus("Ready", "Blue");
+        var today = new Date();
+        var dateString = today.toLocaleDateString('cs-CZ', {
+            year: 'numeric', month: 'numeric', day: 'numeric'
+        });
+        currentDateSpan.textContent = dateString;
     }
 });
 
@@ -28,15 +28,17 @@ function setupVoiceRecognition() {
     if (annyang) {
         annyang.setLanguage('cs-CZ');
         annyang.addCommands(setupCommands());
+        annyang.start({ autoRestart: true, continuous: true });
         annyang.addCallback('soundstart', () => updateStatus('Listening...', 'orange'));
-annyang.addCallback('resultNoMatch', (phrases) => {
-    updateStatus('No command recognized', 'red');
-    // Set back to ready after a slight delay to give feedback
-    setTimeout(() => updateStatus("Ready", "blue"), 3000);
-});
+        annyang.addCallback('end', () => updateStatus('End...', 'black'));
+
 
         annyang.addCallback('resultNoMatch', (phrases) => updateStatus('No command recognized', 'red'));
-        annyang.start({ autoRestart: true, continuous: true });
+        annyang.addCallback('resultMatch', function (userSaid, commandText, phrases) {
+            console.log(userSaid); // sample output: 'hello'
+            console.log(commandText); // sample output: 'hello (there)'
+            console.log(phrases); // sample output: ['hello', 'halo', 'yellow', 'polo', 'hello kitty']
+        });
     } else {
         alert('Annyang is not loaded!');
     }
@@ -69,7 +71,7 @@ function addNote(note, noteClass) {
     noteElement.onclick = () => makeNoteEditable(noteElement);
     noteArea.prepend(noteElement);
     saveNotes();
-      updateStatus("Ready", "blue");
+    updateStatus("Ready", "blue");
 }
 
 
@@ -86,7 +88,7 @@ function createDeleteButton(noteElement) {
         deleteButton.textContent = '';
         deleteButton.className = 'delete';
         deleteButton.style.display = 'none';
-        deleteButton.onclick = function(event) {
+        deleteButton.onclick = function (event) {
             event.stopPropagation();
             noteElement.remove();
             saveNotes();
@@ -99,7 +101,7 @@ function createDeleteButton(noteElement) {
 function makeNoteEditable(noteElement) {
     noteElement.contentEditable = true;
     noteElement.focus();
-    noteElement.onblur = function() {
+    noteElement.onblur = function () {
         noteElement.contentEditable = false;
         saveNotes();
     };
@@ -108,7 +110,7 @@ function makeNoteEditable(noteElement) {
 function updateStatus(message, color) {
     status.textContent = message;
     listeningStatus.style.color = color;
- 
+
 }
 
 function saveNotes() {
@@ -143,7 +145,7 @@ function loadNotes() {
 function downloadNotes() {
     var notes = document.querySelectorAll('.single');
     var content = 'Your Notes:\n';
-    notes.forEach(function(note) {
+    notes.forEach(function (note) {
         var datetime = note.getAttribute('data-datetime');
         var text = note.querySelector('span').textContent; // Assuming text is within a <span>
         content += `${datetime} - ${text}\n`;

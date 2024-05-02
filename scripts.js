@@ -71,7 +71,7 @@ function createDeleteButton(noteElement) {
     let deleteButton = noteElement.querySelector('.delete');
     if (!deleteButton) {
         deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
+        deleteButton.textContent = '';
         deleteButton.className = 'delete';
         deleteButton.style.display = 'none';
         deleteButton.onclick = function(event) {

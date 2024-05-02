@@ -171,12 +171,7 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
     right: 2vh;
 }
 
-#listeningStatus {
-    position: fixed;
-    top: 4vh;
-    margin-top: 20px;
-    font-weight: bold;
-}
+ 
 
 /* Define colors for each voice trigger */
 

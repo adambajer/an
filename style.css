@@ -88,6 +88,7 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
     display: block !important;
     position:absolute;
     right:0vh;
+    border:0px solid black;
 }
 
 

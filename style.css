@@ -93,12 +93,13 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
 
 .single:hover::before {
     content: attr(data-datetime);
-position:absolute;
-    right:2vw;
-    display:block;
-  
-    font-size: 1vw; 
-      color:#9198e5;
+    position: absolute;
+    /* left: -2vw; */
+    display: block;
+    font-size: 0.8vw;
+    color: #9198e5;
+    transform: rotate(-90deg) translate(34px, -74px);
+    left: 0vw;
 }
  
 

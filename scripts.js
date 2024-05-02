@@ -67,52 +67,63 @@
             }
         }
 
-        function startRecognition() {
-            if (annyang) {
-                const dingSound = document.getElementById('dingSound');
-                const statusIndicator = document.getElementById('status');
-                                statusIndicator.style.color = 'red';
+       function startRecognition() {
+    if (annyang) {
+        const dingSound = document.getElementById('dingSound');
+        const statusIndicator = document.getElementById('status');
+        statusIndicator.style.color = 'red'; // default color
 
-                // Callback when sound is detected
-                annyang.addCallback('soundstart', function() {
-                    console.log('Sound detected');
-                    dingSound.play();
-                    statusIndicator.textContent = 'Listening...';
-                    statusIndicator.style.color = 'orange';
-                });
-            
-                // Callback for successful command recognition
-                annyang.addCallback('resultMatch', function() {
-                    console.log('Command recognized');
-                    dingSound.play();
-                    statusIndicator.textContent = 'Command recognized';
-                    statusIndicator.style.color = 'green';
-                });
-            
-                // Callback for no command recognized
-                annyang.addCallback('resultNoMatch', function(phrases) {
-                    console.log('No command recognized', phrases);
-                    dingSound.play();
-                    statusIndicator.textContent = 'No command recognized';
-                    statusIndicator.style.color = 'red';
-                });
-            
-                var commands = {
-                    'měl bych *note': function (note) { addNote('noteArea', note, 'note-mel'); },
-                    'musím *note': function (note) { addNote('noteArea', note, 'note-musi'); },
-                    'měla bych *note': function (note) { addNote('noteArea', note, 'note-mela'); },
-                    'musíme *note': function (note) { addNote('noteArea', note, 'note-musime'); },
-                    'měli bysme *note': function (note) { addNote('noteArea', note, 'note-melibysme'); },
-                    'měli bychom *note': function (note) { addNote('noteArea', note, 'note-melibychom'); }
-                };
-                annyang.addCommands(commands);
-                annyang.setLanguage('cs-CZ');
-                annyang.start({ autoRestart: true, continuous: false });
-                                isRecognizing = true;
-            } else {
-                alert('Annyang is not loaded!');
-            }
-        }
+        // Callback when sound is detected
+        annyang.addCallback('soundstart', function() {
+            console.log('Sound detected');
+            dingSound.play();
+            statusIndicator.textContent = 'Listening...';
+            statusIndicator.style.color = 'orange';
+        });
+
+        // Callback for successful command recognition
+        annyang.addCallback('resultMatch', function() {
+            console.log('Command recognized');
+            dingSound.play();
+            statusIndicator.textContent = 'Command recognized';
+            statusIndicator.style.color = 'green';
+            // Reset color after 3 seconds
+            setTimeout(function() {
+                statusIndicator.style.color = 'red';
+                statusIndicator.textContent = 'Ready';
+            }, 3000);
+        });
+
+        // Callback for no command recognized
+        annyang.addCallback('resultNoMatch', function(phrases) {
+            console.log('No command recognized', phrases);
+            dingSound.play();
+            statusIndicator.textContent = 'No command recognized';
+            statusIndicator.style.color = 'red';
+            // Reset color after 3 seconds
+            setTimeout(function() {
+                statusIndicator.style.color = 'red';
+                statusIndicator.textContent = 'Ready';
+            }, 3000);
+        });
+
+        var commands = {
+            'měl bych *note': function (note) { addNote('noteArea', note, 'note-mel'); },
+            'musím *note': function (note) { addNote('noteArea', note, 'note-musi'); },
+            'měla bych *note': function (note) { addNote('noteArea', note, 'note-mela'); },
+            'musíme *note': function (note) { addNote('noteArea', note, 'note-musime'); },
+            'měli bysme *note': function (note) { addNote('noteArea', note, 'note-melibysme'); },
+            'měli bychom *note': function (note) { addNote('noteArea', note, 'note-melibychom'); }
+        };
+        annyang.addCommands(commands);
+        annyang.setLanguage('cs-CZ');
+        annyang.start({ autoRestart: true, continuous: false });
+        isRecognizing = true;
+    } else {
+        alert('Annyang is not loaded!');
+    }
+}
+
 
         function stopRecognition() {
             if (annyang) {

@@ -48,13 +48,7 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
 }
 
 
-.add-trigger {
-    color: #bf6300;
-}
 
-.add-trigger:hover {
-    background-color: #f0f0f0;
-}
 
 .note {
     border: 0.1vw solid #ccc;
@@ -82,8 +76,7 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
 
 .delete {
     position: absolute;
-    top: 0.4vw;
-    color: red;
+    top: 0.4vw; 
     right: 0.5vw;
     border: 0px;
     padding: 0px;
@@ -171,8 +164,7 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
     padding-bottom: 6vh;
 }
 
-.download {
-    color: blue;
+.download { 
     position: absolute;
     bottom: 2vh;
     bottom: 2vh;

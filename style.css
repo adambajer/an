@@ -17,7 +17,6 @@ span#status {
 #listeningStatus {
    
      border: 1px solid currentColor;
-    transition: all 0.5s linear;
     padding: 1vw;
     font-size: 1vw;
     overflow: hidden;

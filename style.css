@@ -31,95 +31,22 @@ button {
     font-size: 1vw;
 }
 
-/* Define colors for each voice trigger */
-
-
-.sheet .note-mel {
-    border-right: 0.2vw solid #ffd000;
+input:focus, input:active, input:focus-visible, .single:focus-visible, .single:focus, .single:active {
+    outline: 0;
+    border-bottom: 1px solid currentColor;
 }
 
+.single {
 
-
-/* Light red for "měl bych" */
-.sheet .note-musi {
-    border-right: 0.2vw solid #ce00ff;
+    position: relative;
+    border-top-right-radius: 5px;
+    flex-wrap: wrap;
+    display: flex;
+    border-bottom: 0.001vh solid #9198e5;
+    border-bottom-right-radius: 5px;
+    margin-bottom: 0.2vh;
 }
 
-
-
-/* Light blue for "musím" */
-.sheet .note-mela {
-    border-right: 0.2vw solid #ff0000;
-}
-
-/* Light green for "měla bych" */
-.sheet .note-musime {
-    border-right: 0.2vw solid #000000;
-
-}
-
-/* Light orange for "měli bysme" */
-.sheet div.note-melibychom {
-    border-right: 0.2vw solid #0099ff;
-}
-
-/* Light yellow for "musíme" */
-.sheet .note-melibysme {
-    border-right: 0.2vw solid #bf6300;
-}
-
-.inline-flex .note-mel {
-    background: #ffd000;
-    color: #ffd000;
-}
-
-.inline-flex .note-musi {
-    background: #ce00ff;
-    color: #ce00ff;
-}
-
-.inline-flex .note-mela {
-    background: #ff0000;
-    color: #ff0000;
-}
-
-.inline-flex div.note-musime {
-    background: #000000;
-    color: #000000;
-}
-
-.inline-flex .note-melibysme {
-    color: #bf6300;
-    background: #bf6300;
-}
-
-
-
-.inline-flex .note-melibychom {
-    background: #0099ff;
-    color: #0099ff;
-} 
-.inline-flex{ display: inline-flex;}
-.inline-flex div {   
-
-    margin-right: 0.2vw;
-    width: 1.2vw;
-    padding: 0.2vw;
-    display: block;
-    height: 1.2vw;
-    font-size: 1vw;
-    overflow: hidden;
-    border-radius: 0.2vw;
- }
-
-.inline-flex div:hover {
-    transition: all 0.5s linear;
-    width: fit-content;
-     background: transparent;
-    border: 1px solid currentColor;
-    box-shadow: 0.2vw 0.2vw 0.9vw currentColor;
-
-}
 
 .add-trigger {
     color: #bf6300;
@@ -141,10 +68,6 @@ button {
     /* Maximum height */
 }
 
-input:focus, input:active, input:focus-visible, .single:focus-visible, .single:focus, .single:active {
-    outline: 0;
-    border-bottom: 1px solid currentColor;
-}
 
 .chevron {
     width: 2vw;
@@ -155,17 +78,6 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
     z-index: 9;
     display: inline-flex;
     align-items: center;
-}
-
-.single {
-
-    position: relative;
-    border-top-right-radius: 5px;
-    flex-wrap: wrap;
-    display: flex;
-    border-bottom: 0.001vh solid #9198e5;
-    border-bottom-right-radius: 5px;
-    margin-bottom: 0.2vh;
 }
 
 .delete {
@@ -272,4 +184,121 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
     bottom: 2vh;
     margin-top: 20px;
     font-weight: bold;
+}
+
+/* Define colors for each voice trigger */
+
+
+.sheet .note-mel {
+    border-right: 0.2vw solid #ffd000;
+}
+
+.sheet .note-mel:focus {
+    color: #ffd000;
+}
+
+/* Light red for "měl bych" */
+.sheet .note-musi {
+    border-right: 0.2vw solid #ce00ff;
+}
+
+.sheet .note-musi:focus {
+    color: #ce00ff;
+}
+
+
+
+/* Light blue for "musím" */
+.sheet .note-mela {
+    border-right: 0.2vw solid #ff0000;
+}
+
+.sheet .note-mela:focus {
+    color: #ff0000;
+}
+
+/* Light green for "měla bych" */
+.sheet .note-musime {
+    border-right: 0.2vw solid #000000;
+
+}
+
+.sheet .note-musime:focus {
+    color: #000000;
+}
+
+/* Light orange for "měli bysme" */
+.sheet div.note-melibychom {
+    border-right: 0.2vw solid #0099ff;
+}
+
+
+.sheet .note-melibychom:focus {
+    color: #0099ff;
+}
+
+/* Light yellow for "musíme" */
+.sheet .note-melibysme {
+    border-right: 0.2vw solid #bf6300;
+}
+
+.sheet .note-melibysme:focus {
+    color: #bf6300;
+}
+
+.inline-flex .note-mel {
+    background: #ffd000;
+    color: #ffd000;
+}
+
+.inline-flex .note-musi {
+    background: #ce00ff;
+    color: #ce00ff;
+}
+
+.inline-flex .note-mela {
+    background: #ff0000;
+    color: #ff0000;
+}
+
+.inline-flex div.note-musime {
+    background: #000000;
+    color: #000000;
+}
+
+.inline-flex .note-melibysme {
+    color: #bf6300;
+    background: #bf6300;
+}
+
+
+
+.inline-flex .note-melibychom {
+    background: #0099ff;
+    color: #0099ff;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+
+.inline-flex div {
+
+    margin-right: 0.2vw;
+    width: 1.2vw;
+    padding: 0.2vw;
+    display: block;
+    height: 1.2vw;
+    font-size: 1vw;
+    overflow: hidden;
+    border-radius: 0.2vw;
+}
+
+.inline-flex div:hover {
+    transition: all 0.5s linear;
+    width: fit-content;
+    background: transparent;
+    border: 1px solid currentColor;
+    box-shadow: 0.2vw 0.2vw 0.9vw currentColor;
+
 }

@@ -9,7 +9,7 @@ var triggerPhraseMap = {
 };
 
 const listeningStatus = document.getElementById('listeningStatus');
-const statusIndicator = document.getElementById('status');
+const status = document.getElementById('status');
 document.addEventListener('DOMContentLoaded', function () {
     initializeApp();
     var currentDateSpan = document.getElementById('currentDate');
@@ -59,19 +59,20 @@ function startRecognition() {
         // Callback when sound is detected
         annyang.addCallback('soundstart', function () {
             dingSound.play();
-            statusIndicator.textContent = 'Listening...';
+            status.textContent = 'Listening...';
             listeningStatus.style.color = 'orange';
         });
 
         // Callback for successful command recognition
         annyang.addCallback('resultMatch', function () {
             dingSound.play();
-            statusIndicator.textContent = 'Command recognized';
-            listeningStatus.style.color = 'green';
+            status.textContent = 'Command recognized'; 
+            statusIndicator.textContent = 'green';
             // Reset color after 3 seconds
             setTimeout(function () {
-                listeningStatus.style.color = 'blue';
-                statusIndicator.textContent = 'Ready';
+                
+                status.textContent = 'Ready';
+                statusIndicator.style.color =  'blue';
             }, 3000);
         });
 
@@ -79,12 +80,13 @@ function startRecognition() {
         annyang.addCallback('resultNoMatch', function (phrases) {
             console.log('No command recognized', phrases);
             dingSound.play();
-            statusIndicator.textContent = 'No command recognized';
+            status.textContent = 'No command recognized';
             listeningStatus.style.color = 'red';
             // Reset color after 3 seconds
             setTimeout(function () {
-                statusIndicator.style.color = 'blue';
-                listeningStatus.textContent = 'Ready';
+                statusIndicator.style.color = 'Ready'; 
+                listeningStatus.style.color = 'red';
+
             }, 3000);
         });
 

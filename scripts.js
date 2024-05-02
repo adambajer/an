@@ -66,8 +66,9 @@ function startRecognition() {
         // Callback for successful command recognition
         annyang.addCallback('resultMatch', function () {
             dingSound.play();
-            status.textContent = 'Command recognized'; 
-            listeningStatus.textContent = 'green';
+            status.textContent = 'Command recognized';  
+                            listeningStatus.style.color =  'green';
+
             // Reset color after 3 seconds
             setTimeout(function () {
                 

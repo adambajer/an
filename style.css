@@ -10,7 +10,13 @@ body {
 }
 
 span#status {
-    background: white; 
+   
+    display: block;
+    transition: all 0.5s linear; 
+    font-size: 1vw;v
+}
+#listeningStatus {
+   
     border: 2px solid currentColor;
     display: block;
     transition: all 0.5s linear;

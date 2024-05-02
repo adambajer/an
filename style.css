@@ -10,8 +10,7 @@ body {
 }
 
 span#status {
-   
-    display: block;
+    
     transition: all 0.5s linear; 
     font-size: 1vw;v
 }

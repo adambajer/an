@@ -99,8 +99,8 @@
        background: #0099ff;
        color: #0099ff;
    } 
-
-   .inline-flex div {    display: inline-flex;
+   .inline-flex{ display: inline-flex;}
+   .inline-flex div {   
 
        margin-right: 0.2vw;
        width: 1.2vw;
@@ -170,7 +170,7 @@
 
    .delete {
        position: absolute;
-       top: 0.5vw;
+       top: 0.2vw;
        color: red;
        right: 0.5vw;
        border: 0px;
@@ -190,7 +190,7 @@
 
        color: black;
        position: absolute;
-       right: 1vw;
+       right: 1.5vw;
        font-size: 1vw;
        transform: translateY(1vh);
    }

@@ -33,9 +33,6 @@ button {
     background-color: transparent;
     font-size: 1vw;
 }
-.single:hover .delete {
-    display: block;
-}
 
 input:focus, input:active, input:focus-visible, .single:focus-visible, .single:focus, .single:active {
     outline: 0;
@@ -81,21 +78,15 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
     display: inline-flex;
     align-items: center;
 }
-
-.delete {
-    position: absolute;
-    top: 0.4vw; 
-    right: 0.5vw;
-    border: 0px;
-    padding: 0px;
-    font-size: 1vw;
-color:#9198e5;
-}
+ 
 
 .delete::after {
     content: "\1F5D1";
 }
 
+.single:hover .delete {
+    display: block;
+}
 
 
 .single:hover::after {

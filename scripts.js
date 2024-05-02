@@ -71,25 +71,23 @@
     if (annyang) {
         const dingSound = document.getElementById('dingSound');
         const statusIndicator = document.getElementById('status');
-        statusIndicator.style.color = 'red'; // default color
+        statusIndicator.style.color = 'blue'; // default color
 
         // Callback when sound is detected
         annyang.addCallback('soundstart', function() {
-            console.log('Sound detected');
-            dingSound.play();
+             dingSound.play();
             statusIndicator.textContent = 'Listening...';
             statusIndicator.style.color = 'orange';
         });
 
         // Callback for successful command recognition
         annyang.addCallback('resultMatch', function() {
-            console.log('Command recognized');
-            dingSound.play();
+             dingSound.play();
             statusIndicator.textContent = 'Command recognized';
             statusIndicator.style.color = 'green';
             // Reset color after 3 seconds
             setTimeout(function() {
-                statusIndicator.style.color = 'red';
+                statusIndicator.style.color = 'blue';
                 statusIndicator.textContent = 'Ready';
             }, 3000);
         });
@@ -102,7 +100,7 @@
             statusIndicator.style.color = 'red';
             // Reset color after 3 seconds
             setTimeout(function() {
-                statusIndicator.style.color = 'red';
+                statusIndicator.style.color = 'blue';
                 statusIndicator.textContent = 'Ready';
             }, 3000);
         });

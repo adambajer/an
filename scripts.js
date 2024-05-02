@@ -29,7 +29,11 @@ function setupVoiceRecognition() {
         annyang.setLanguage('cs-CZ');
         annyang.addCommands(setupCommands());
         annyang.addCallback('soundstart', () => updateStatus('Listening...', 'orange'));
-        annyang.addCallback('resultMatch', (userSaid, commandText) => updateStatus(`Command recognized: ${commandText}`, 'green'));
+        annyang.addCallback('resultMatch', (userSaid, commandText) => {
+    updateStatus(`Processing command: ${commandText}`, 'yellow');
+    setTimeout(() => updateStatus(`Command recognized: ${commandText}`, 'green'), 500); // slight delay to simulate processing
+});
+
         annyang.addCallback('resultNoMatch', (phrases) => updateStatus('No command recognized', 'red'));
         annyang.start({ autoRestart: true, continuous: true });
     } else {

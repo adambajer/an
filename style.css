@@ -85,7 +85,7 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
 }
 
 .single:hover .delete {
-    display: block;
+    display: block !important;
 }
 
 

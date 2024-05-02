@@ -29,9 +29,10 @@ function setupVoiceRecognition() {
         annyang.setLanguage('cs-CZ');
         annyang.addCommands(setupCommands());
         annyang.addCallback('soundstart', () => updateStatus('Listening...', 'orange'));
-        annyang.addCallback('resultMatch', (userSaid, commandText) => {
-    updateStatus(`Processing command: ${commandText}`, 'yellow');
-    setTimeout(() => updateStatus(`Command recognized: ${commandText}`, 'green'), 500); // slight delay to simulate processing
+annyang.addCallback('resultNoMatch', (phrases) => {
+    updateStatus('No command recognized', 'red');
+    // Set back to ready after a slight delay to give feedback
+    setTimeout(() => updateStatus("Ready", "blue"), 3000);
 });
 
         annyang.addCallback('resultNoMatch', (phrases) => updateStatus('No command recognized', 'red'));
@@ -68,6 +69,7 @@ function addNote(note, noteClass) {
     noteElement.onclick = () => makeNoteEditable(noteElement);
     noteArea.prepend(noteElement);
     saveNotes();
+      updateStatus("Ready", "blue");
 }
 
 

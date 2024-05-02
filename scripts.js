@@ -72,7 +72,7 @@ function startRecognition() {
         const dingSound = document.getElementById('dingSound');
         const statusIndicator = document.getElementById('status');
         statusIndicator.style.color = 'blue'; // default color
-        annyang.debug([newState=true];
+        annyang.debug([newState=true]);
         // Callback when sound is detected
         annyang.addCallback('soundstart', function () {
             dingSound.play();

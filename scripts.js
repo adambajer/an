@@ -34,25 +34,30 @@ function setupVoiceRecognition() {
         // No command matched
         annyang.addCallback('resultNoMatch', (phrases) => {
             updateStatus('Command not recognized', 'red');
-            // Schedule a status reset to "Ready" after a delay
-            setTimeout(() => updateStatus("Ready", "blue"), 500);
+            // Schedule a status reset to "Ready" after a brief delay
+            setTimeout(() => updateStatus("Ready", "blue"), 3000);
         });
 
         // Command matched
         annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
             updateStatus(`Command recognized: ${commandText}`, 'green');
-            // Reset status to "Ready" after processing is complete (assumed to be immediate here)
-            setTimeout(() => updateStatus("Ready", "blue"), 3000);
+            // Perform the action associated with the command
+            executeCommand(commandText, userSaid);
+            // Assume the command processing is quick; adjust if not
+            setTimeout(() => updateStatus("Ready", "blue"), 1000);
         });
-        annyang.start({ autoRestart:false, continuous: false });
 
-        // Listening ends (Optional, depending on need)
+        // Start recognition. Consider continuous and auto-restart based on your app's needs
+        annyang.start({ autoRestart: true, continuous: true });
     } else {
         alert('Annyang is not loaded!');
     }
 }
-
-
+function executeCommand(commandText, userSaid) {
+    console.log("Executing command:", commandText, "Said:", userSaid);
+    // Here you can add code to handle the command appropriately
+    // For example, using the commandText to call different functions
+}
 function setupCommands() {
     var commands = {};
     Object.keys(triggerPhraseMap).forEach(key => {

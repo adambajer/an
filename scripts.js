@@ -105,11 +105,14 @@ function updateStatus(message, color) {
 }
 
 function saveNotes() {
-    const notes = Array.from(document.querySelectorAll('.single')).map(note => ({
-        datetime: note.getAttribute('data-datetime'),
-        text: note.textContent,
-        noteClass: note.className.split(' ')[1]
-    }));
+    const notes = Array.from(document.querySelectorAll('.single')).map(note => {
+        let textSpan = note.querySelector('span'); // Ensure only text content is saved
+        return {
+            datetime: note.getAttribute('data-datetime'),
+            text: textSpan.textContent, // Save only the text content
+            noteClass: note.className.split(' ')[1]
+        };
+    });
     localStorage.setItem('notes', JSON.stringify(notes));
 }
 
@@ -117,11 +120,15 @@ function loadNotes() {
     const notesArea = document.getElementById('noteArea');
     const savedNotes = JSON.parse(localStorage.getItem('notes') || '[]');
     savedNotes.forEach(({ text, noteClass, datetime }) => {
-        const noteElement = document.createElement('div');
+        let noteElement = document.createElement('div');
         noteElement.className = 'single ' + noteClass;
-        noteElement.textContent = text;
         noteElement.setAttribute('data-datetime', datetime);
-        noteElement.appendChild(createDeleteButton(noteElement));  // Ensure this element is correctly defined
+
+        let textSpan = document.createElement('span');
+        textSpan.textContent = text;
+        noteElement.appendChild(textSpan);
+
+        noteElement.appendChild(createDeleteButton(noteElement));
         noteElement.onclick = () => makeNoteEditable(noteElement);
         notesArea.prepend(noteElement);
     });

@@ -8,8 +8,10 @@ var triggerPhraseMap = {
     'custom-trigger': 'Custom' // Default phrase for custom triggers
 };
 function getListeningClass(triggerPhrase) {
-  return triggerPhraseMap[triggerPhrase] || 'default'; // Default class if no match
+  const className = triggerPhraseMap[triggerPhrase] || 'default';
+  return className.replace(/\s/g, '_'); // Replace spaces with underscores
 }
+
 let listeningStatus = document.getElementById('listeningStatus');
 let status = document.getElementById('status'); 
 function updateStatus(message, color, commandText) {

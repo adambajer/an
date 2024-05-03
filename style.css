@@ -317,3 +317,16 @@ color:#ff0000;
     box-shadow: 0.2vw 0.2vw 0.9vw currentColor;
 
 }
+.context-menu {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 5px;
+  display: none; /* Initially hidden */
+}
+
+.context-menu div {
+  padding: 5px;
+  cursor: pointer;
+  /* Add hover styles as needed */
+}

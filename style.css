@@ -323,6 +323,8 @@ color:#ff0000;
   border: 1px solid #ddd;
   padding: 5px;
   display: none; /* Initially hidden */
+    width:200px;
+    height:200px;
 }
 
 .context-menu div {

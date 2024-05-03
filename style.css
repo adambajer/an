@@ -138,10 +138,10 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
     z-index: 999999;
     background: #ffffff;
     padding: 1vw;
-    border-radius: 1vw;
+    border-radius: 0vw;
     left: 0;
-    top: 0.5vw;
-    margin: 0.5vw;
+    top: 0vw;
+    margin: 0.2vw;
     backdrop-filter: blur(7px);
     border: 1px solid #ccc;
 }

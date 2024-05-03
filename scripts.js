@@ -11,10 +11,10 @@ var triggerPhraseMap = {
 let listeningStatus = document.getElementById('listeningStatus');
 let status = document.getElementById('status'); 
 function updateStatus(message, color, commandText) {
-    let commandClass = getCommandClass(commandText);  // Fetch the appropriate class based on the command
+     // Fetch the appropriate class based on the command
     status.textContent = message;
     listeningStatus.style.color = color;
-    listeningStatus.className = triggerPhraseMap[commandClass];  // Apply the fetched class directly
+    listeningStatus.className = triggerPhraseMap[commandText];  // Apply the fetched class directly
 }
 
 

@@ -10,17 +10,22 @@ var triggerPhraseMap = {
 
 let listeningStatus = document.getElementById('listeningStatus');
 let status = document.getElementById('status'); 
-function updateStatus(message, color, commandClass) {
-    // Remove '*note' from the commandClass if present
-
+function updateStatus(message, color, commandText) {
+    let commandClass = getCommandClass(commandText);  // Ensure this returns the correct class
     status.textContent = message;
     listeningStatus.style.color = color;
-
-    // If a matching key is found, use it as the class; otherwise, use 'custom-trigger'
-    listeningStatus.className = commandClass ? commandClass : 'custom-trigger';
+    listeningStatus.className = commandClass ? commandClass : 'custom-trigger';  // Fallback to 'custom-trigger' if no class is found
 }
 
 
+function getCommandClass(commandText) {
+    for (let key in triggerPhraseMap) {
+        if (triggerPhraseMap[key] === commandText) {
+            return key;  // Return the class that matches the command
+        }
+    }
+    return 'custom-trigger';  // Return default class if no match is found
+}
 document.addEventListener('DOMContentLoaded', function () {
     if (!window.notesLoaded) {
         loadNotes();
@@ -63,21 +68,7 @@ annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
     setTimeout(() => startAnnyang(), 1000); // Restart after processing the command
 });
 
-
-function getCommandClass(commandText) {
-    // Iterate over the triggerPhraseMap to find the class associated with the command text
-    for (let key in triggerPhraseMap) {
-        if (triggerPhraseMap[key] === commandText) {
-            return key; // Return the key which is the class name related to the command
-        }
-    }
-    return ''; // Return an empty string if no class is associated with the command
-}
-
-    } else {
-        alert('Annyang is not loaded!');
-    }
-}
+ 
 
 function startAnnyang() {
     annyang.start({ autoRestart: false, continuous: true });              

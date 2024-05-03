@@ -7,24 +7,28 @@ var triggerPhraseMap = {
     'note-melibychom': 'Měli bychom',
     'custom-trigger': 'Custom' // Default phrase for custom triggers
 };
-
+function getListeningClass(triggerPhrase) {
+  return triggerPhraseMap[triggerPhrase] || 'default'; // Default class if no match
+}
 let listeningStatus = document.getElementById('listeningStatus');
 let status = document.getElementById('status'); 
-function updateStatus(message, color, state) {
+function updateStatus(message, color, commandText) {
   status.textContent = message;
   console.log(message);
   listeningStatus.style.color = color;
 
-  // Remove any existing state classes
-  listeningStatus.className = '';
+  // Ensure a default class is set initially (if not already defined)
+  if (!listeningStatus.className) {
+    listeningStatus.className = 'default'; // Or any preferred default class
+  }
 
-  // Add the appropriate state class based on the argument
-  listeningStatus.classList.add(state);
+  // Get the class based on the trigger phrase or use the default
+  const listeningClass = getListeningClass(triggerPhraseMap[commandText]);
+  listeningStatus.className = listeningClass;
 
   console.log(triggerPhraseMap);
-  console.log(triggerPhraseMap[state]);
+  console.log(triggerPhraseMap[commandText]);
 }
-
 
 
 

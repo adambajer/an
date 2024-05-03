@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!window.notesLoaded) {
         loadNotes();
         setupVoiceRecognition();
+            setupNoteInput();
+
         window.notesLoaded = true;
         var currentDateSpan = document.getElementById('currentDate');
         var today = new Date();
@@ -22,7 +24,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         currentDateSpan.textContent = dateString;
     }
-});function setupVoiceRecognition() {
+});
+function setupVoiceRecognition() {
     if (annyang) {
         annyang.setLanguage('cs-CZ');
         annyang.addCommands(setupCommands());
@@ -72,6 +75,15 @@ function setupCommands() {
         commands[`${triggerPhraseMap[key]} *note`] = (note) => addNote(note, key);
     });
     return commands;
+}
+function setupNoteInput() {
+    const inputElement = document.getElementById('noteInput'); // Assume 'noteInput' is the ID of your text input
+    inputElement.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent the default action to avoid submitting the form
+            addNote(); // Assume 'addNote' is a function that handles adding the new note
+        }
+    });
 }
 
 function addNote(note, noteClass) {

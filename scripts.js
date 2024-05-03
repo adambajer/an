@@ -74,7 +74,7 @@ function setupVoiceRecognition() {
 annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
   let commandClass = triggerPhraseMap[phrases];
     
-    updateStatus(commandText, 'green', commandClass); // Update status with the command class
+    updateStatus(commandText, 'green', phrases); // Update status with the command class
     setTimeout(() => startAnnyang(), 1000); // Restart after processing the command
 });
 

@@ -46,19 +46,19 @@ function setupVoiceRecognition() {
         // When sound starts, indicate listening
         annyang.addCallback('soundstart', () => {
             console.log('Listening...');
-            updateStatus('Listening...', 'blue');
+            updateStatus('Listening...', 'blue','start');
         });
 
         // Handle no command match
         annyang.addCallback('resultNoMatch', (phrases) => {
             console.log('No command recognized:', phrases);
-            updateStatus('Command not recognized', 'red','');
+            updateStatus('Command not recognized', 'red','error');
             setTimeout(() => startAnnyang(), 3000); // Restart after a brief pause
         });
 
 annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
     console.log('Command ' + commandText); // Log command
-    const commandClass = getCommandClass(commandText); // Get the class associated with the command
+    let commandClass = getCommandClass(commandText); // Get the class associated with the command
     updateStatus(`Command ${commandText}`, 'green', commandClass); // Update status with the command class
     setTimeout(() => startAnnyang(), 1000); // Restart after processing the command
 });
@@ -80,7 +80,8 @@ function getCommandClass(commandText) {
 }
 
 function startAnnyang() {
-    annyang.start({ autoRestart: false, continuous: true });               updateStatus('Listening...', 'blue');
+    annyang.start({ autoRestart: false, continuous: true });              
+    updateStatus('Listening...', 'blue','ready');
 
 
 }

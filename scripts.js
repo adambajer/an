@@ -251,4 +251,4 @@ function addManualNote() {
         addNote(noteInput.value, 'manual-note'); // Corrected to pass note text and note class correctly
         noteInput.value = ''; // Clear input after adding
     }
-}}
+}

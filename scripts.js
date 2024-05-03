@@ -15,7 +15,7 @@ function getListeningClass(triggerPhrase) {
 let listeningStatus = document.getElementById('listeningStatus');
 let status = document.getElementById('status'); 
 function updateStatus(message, color, commandText) {
-  status.textContent = message;
+
 
   //listeningStatus.style.color = color;
 
@@ -26,6 +26,7 @@ function updateStatus(message, color, commandText) {
 
   // Get the class based on the trigger phrase or use the default
   const triggerPhrase = commandText.replace(/\s\*note$/, ''); // Remove "* note" from the end (including the space)
+      status.textContent = triggerPhrase;
   const listeningClass = getCommandClass(triggerPhrase);
   listeningStatus.className = listeningClass;
   console.log(triggerPhrase); // This will now log the text with the space before "*note"

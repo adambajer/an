@@ -39,6 +39,7 @@ function toggleContextMenu(event) {
   const clickY = event.clientY;
   contextMenu.style.top = `${clickY}px`;
   contextMenu.style.left = `${clickX}px`;
+    contextMenu.style.display = 'visible';
 
   // Append the menu to the body element
   document.body.appendChild(contextMenu);

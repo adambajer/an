@@ -76,17 +76,12 @@ function setupVoiceRecognition() {
             updateStatus('Listening...', 'blue','start');
         });
 
-        // Handle no command match
-    annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
-  let commandClass = getCommandClass(phrases); // Use phrases for class lookup
-  updateStatus(commandText, 'green', phrases); // Pass phrases to updateStatus
-  setTimeout(() => startAnnyang(), 1000); // Restart after processing the command
-});
+   
 
     } }
 annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
   const triggerPhrase = commandText.toString().replace(/\s\*note$/, ''); // Convert to string if needed
-  updateStatus(message, color, triggerPhrase);
+  updateStatus(commandText, 'green', triggerPhrase);
     setTimeout(() => startAnnyang(), 1000); // Restart after processing the command
 });
 

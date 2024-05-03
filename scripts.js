@@ -15,9 +15,7 @@ function getListeningClass(triggerPhrase) {
 let listeningStatus = document.getElementById('listeningStatus');
 let status = document.getElementById('status'); 
 function updateStatus(message, color, commandText) {
-
-
-  //listeningStatus.style.color = color;
+ 
 
   // Ensure a default class is set initially (if not already defined)
   if (!listeningStatus.className) {
@@ -25,16 +23,18 @@ function updateStatus(message, color, commandText) {
   }
 
   // Get the class based on the trigger phrase or use the default
-  const triggerPhrase = commandText.replace(/\s\*note$/, ''); // Remove "* note" from the end (including the space)
+  const triggerPhrase = commandText.replace(/\s\*note$/, '');
       status.textContent = triggerPhrase;
+
   const listeningClass = getCommandClass(triggerPhrase);
   listeningStatus.className = listeningClass;
-  console.log(triggerPhrase); // This will now log the text with the space before "*note"
 
-  console.log(triggerPhraseMap); // This will show the trigger phrases without "* note"
-  console.log(triggerPhraseMap[triggerPhrase]); // This might be undefined if the trigger phrase without "* note" doesn't exist
+  console.log(triggerPhraseMap);
+  console.log(triggerPhraseMap[triggerPhrase]);
+
+  // Update document title with the recognized command text
+  document.title = `Listening for "${commandText}"`; // Set title with the full command (including "*note")
 }
-
 
 
 

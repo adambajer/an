@@ -14,8 +14,12 @@ function updateStatus(message, color, commandText) {
      // Fetch the appropriate class based on the command
     status.textContent = message;
     console.log(message);
-    listeningStatus.style.color = color;
-    listeningStatus.className = triggerPhraseMap[commandText];  // Apply the fetched class directly
+    listeningStatus.style.color = color;// Inside the updateStatus function
+if (!listeningStatus.className) {
+  listeningStatus.className = triggerPhraseMap[commandText];
+} else {
+  listeningStatus.className += ' ' + triggerPhraseMap[commandText];
+}
     console.log(triggerPhraseMap);    
     console.log(triggerPhraseMap[commandText]);
 

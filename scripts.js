@@ -15,32 +15,24 @@ function getListeningClass(triggerPhrase) {
 let listeningStatus = document.getElementById('listeningStatus');
 let status = document.getElementById('status'); 
 // Function to create and display the context menu
-function showContextMenu(event) {
+// Function to create and toggle the context menu
+let currentContextMenu = null; // Store currently active context menu
+
+function toggleContextMenu(event) {
   event.preventDefault(); // Prevent default right-click behavior
 
-  // Create the context menu element
+  if (currentContextMenu) { // Hide an existing menu
+    currentContextMenu.style.display = 'none';
+    currentContextMenu = null;
+    return;
+  }
+
+  // Create the context menu element (similar to previous code)
   const contextMenu = document.createElement('div');
-  contextMenu.classList.add('context-menu'); // Add a class for styling
+  contextMenu.classList.add('context-menu');
 
   // Add menu items (adjust as needed)
-  const editMenuItem = document.createElement('div');
-  editMenuItem.textContent = 'Edit';
-  editMenuItem.addEventListener('click', () => {
-    // Handle edit functionality for the clicked note
-    console.log('Edit clicked for note:', event.target); // Replace with your edit logic
-    contextMenu.style.display = 'none'; // Hide menu after click
-  });
-  contextMenu.appendChild(editMenuItem);
-
-  const deleteMenuItem = document.createElement('div');
-  deleteMenuItem.textContent = 'Delete';
-  deleteMenuItem.addEventListener('click', () => {
-    // Handle delete functionality for the clicked note
-    console.log('Delete clicked for note:', event.target); // Replace with your delete logic
-    contextMenu.style.display = 'none'; // Hide menu after click
-    // You might want to remove the note element from the DOM here
-  });
-  contextMenu.appendChild(deleteMenuItem);
+  // ... (context menu content)
 
   // Position the menu relative to the clicked note
   const clickX = event.clientX;
@@ -51,14 +43,17 @@ function showContextMenu(event) {
   // Append the menu to the body element
   document.body.appendChild(contextMenu);
 
+  // Update currentContextMenu for toggling
+  currentContextMenu = contextMenu;
+
   // Hide the menu on any click outside the context menu
   document.addEventListener('click', (clickEvent) => {
     if (!contextMenu.contains(clickEvent.target)) {
       contextMenu.style.display = 'none';
+      currentContextMenu = null; // Reset currentContextMenu
     }
   });
 }
-
 function updateStatus(message, color, commandText) {
  
 
@@ -110,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Add right-click event listener to each note
 const noteElements = document.querySelectorAll('.single');
 noteElements.forEach(note => {
-  note.addEventListener('contextmenu', showContextMenu);
+  note.addEventListener('contextmenu', toggleContextMenu);
 });
     }
 });

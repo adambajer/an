@@ -16,7 +16,7 @@ let listeningStatus = document.getElementById('listeningStatus');
 let status = document.getElementById('status'); 
 function updateStatus(message, color, commandText) {
   status.textContent = message;
-  console.log(commandText);
+  console.log(commandText); // This will now log the text without "*note"
   listeningStatus.style.color = color;
 
   // Ensure a default class is set initially (if not already defined)
@@ -25,12 +25,14 @@ function updateStatus(message, color, commandText) {
   }
 
   // Get the class based on the trigger phrase or use the default
-  const listeningClass = getListeningClass(triggerPhraseMap[commandText]);
+  const triggerPhrase = commandText.replace(/\s\*\note$/, ''); // Remove "*note" from the end using regular expression
+  const listeningClass = getCommandClass(triggerPhrase);
   listeningStatus.className = listeningClass;
 
-  console.log(triggerPhraseMap);
-  console.log(triggerPhraseMap[commandText]);
+  console.log(triggerPhraseMap); // This will show the trigger phrases without "*note"
+  console.log(triggerPhraseMap[triggerPhrase]); // This might be undefined if the trigger phrase without "*note" doesn't exist
 }
+
 
 
 

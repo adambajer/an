@@ -125,8 +125,8 @@ function addNote(note, noteClass) {
   // Extract only hours using toLocaleTimeString with specific format
   const displayTime = fullDatetime.toLocaleTimeString('cs-CZ', {
     hour: '2-digit',
-    minute: '00', // Set minutes to zero (optional)
-    second: '00', // Set seconds to zero (optional)
+    minute: '2-digit',
+    second: '2-digit',
     hour12: false
   });
 

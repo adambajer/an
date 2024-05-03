@@ -14,8 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!window.notesLoaded) {
         loadNotes();
         setupVoiceRecognition();
-            setupNoteInput();
-
+ 
         window.notesLoaded = true;
         var currentDateSpan = document.getElementById('currentDate');
         var today = new Date();

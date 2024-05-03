@@ -67,7 +67,7 @@ function setupVoiceRecognition() {
         });
     } }
 annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
-  let commandClass = triggerPhraseMap[phrases] ? `${triggerPhraseMap[phrases]} ${note}` : note;
+  let commandClass = triggerPhraseMap[phrases];
     
     updateStatus(`Command ${commandText}`, 'green', commandClass); // Update status with the command class
     setTimeout(() => startAnnyang(), 1000); // Restart after processing the command

@@ -15,8 +15,9 @@ function updateStatus(message, color, commandText) {
     status.textContent = message;
     console.log(message);
     listeningStatus.style.color = color;
-    listeningStatus.className = triggerPhraseMap[message];  // Apply the fetched class directly
-    console.log(triggerPhraseMap);    console.log(triggerPhraseMap[message]);
+    listeningStatus.className = triggerPhraseMap[commandText];  // Apply the fetched class directly
+    console.log(triggerPhraseMap);    
+    console.log(triggerPhraseMap[commandText]);
 
 }
 

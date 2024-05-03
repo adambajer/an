@@ -140,7 +140,7 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
     border-radius: 0vw;
     left: 0;
     top: 0vw;
-    margin: 0.2vw;
+    margin: 0vw;
     backdrop-filter: blur(7px);
     border: 1px solid #ccc;
 }

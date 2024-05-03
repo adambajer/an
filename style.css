@@ -3,11 +3,12 @@
     font-size: 1.5vw;
     /* Font size scales with the viewport width */
 }
-
 body {
-    margin: 0;
-    padding: 0;
-    background-image:url("wood.jpg");
+  margin: 0;
+  padding: 0;
+  background-image: url("wood.jpg");
+  background-size: cover; /* This resizes the image to cover the entire viewport */
+  background-repeat: no-repeat; /* This prevents the image from repeating */
 }
 
 span#status {

@@ -111,12 +111,13 @@ function addNote(note, noteClass) {
         hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
     }); // This will only display the time
 
+
     let noteElement = document.createElement('div');
     noteElement.className = 'single ' + noteClass;
     noteElement.setAttribute('data-datetime', fullDatetime.toLocaleString('cs-CZ')); // Store full datetime
 
     let textSpan = document.createElement('span'); // Use a span to hold the text content
-    textSpan.textContent = `${triggerPhraseMap[noteClass]} || ${note}`;
+    textSpan.textContent = triggerPhraseMap[noteClass] ? `${triggerPhraseMap[noteClass]} ${note}` : note;
     noteElement.appendChild(textSpan);
 
     noteElement.appendChild(createDeleteButton(noteElement));

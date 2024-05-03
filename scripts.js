@@ -52,13 +52,15 @@ annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
     setTimeout(() => startAnnyang(), 1000); // Restart after processing the command
 });
 
-function updateStatus(message, color) {
-        commandClass = message.replace(' *note', '');
+function updateStatus(message, color, commandClass = '') {
+    // Remove '*note' from the commandClass if present
+    commandClass = commandClass.replace(' *note', '');
 
-    status.textContent = message; // Update the text of the status element
-    listeningStatus.style.color = color; // Change the text color of the listeningStatus element
-        listeningStatus.className = commandClass;
-
+    status.textContent = message;
+    listeningStatus.style.color = color;
+    
+    // Replace the entire class list with the new class, ensuring only relevant class is applied
+    listeningStatus.className = commandClass;
 }
 
 

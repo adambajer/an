@@ -14,7 +14,7 @@ function updateStatus(message, color, commandClass = '') {
     // Remove '*note' from the commandClass if present
     commandClass = commandClass.replace(' *note', '');
 
-    status.textContent = message;
+    status.textContent = commandClass;
     listeningStatus.style.color = color;
     
     // Replace the entire class list with the new class, ensuring only relevant class is applied

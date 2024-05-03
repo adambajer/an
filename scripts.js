@@ -53,12 +53,16 @@ annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
 });
 
 function updateStatus(message, color, commandClass = '') {
+    // Remove '*note' from the commandClass if present
+    commandClass = commandClass.replace(' *note', '');
+
     status.textContent = message;
     listeningStatus.style.color = color;
-    if (commandClass) {
-        listeningStatus.className = commandClass; // Apply the command class to the listening status element
-    }
+    
+    // Replace the entire class list with the new class, ensuring only relevant class is applied
+    listeningStatus.className = commandClass;
 }
+
 
 function getCommandClass(commandText) {
     // Iterate over the triggerPhraseMap to find the class associated with the command text
@@ -159,13 +163,7 @@ function makeNoteEditable(noteElement) {
     };
 }
 
-function updateStatus(message, color, commandClass = '') {
-    status.textContent = message;
-    listeningStatus.style.color = color;
-    if (commandClass) {
-        listeningStatus.className = commandClass; // Apply the command class to the listening status element
-    }
-}
+ 
 function getCommandClass(commandText) {
     // Iterate over the triggerPhraseMap to find the class associated with the command text
     for (let key in triggerPhraseMap) {

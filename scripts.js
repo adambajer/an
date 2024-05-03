@@ -18,7 +18,7 @@ function updateStatus(message, color, commandClass = '') {
     listeningStatus.style.color = color;
     
     // Replace the entire class list with the new class, ensuring only relevant class is applied
-    listeningStatus.className = commandClass;
+    listeningStatus.className = "test";
 }
 
 

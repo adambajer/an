@@ -60,7 +60,7 @@ function setupVoiceRecognition() {
             updateStatus('Command not recognized', 'red','error');
             setTimeout(() => startAnnyang(), 3000); // Restart after a brief pause
         });
-
+    } }
 annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
     console.log('Command ' + commandText); // Log command
     let commandClass = getCommandClass(commandText); // Get the class associated with the command

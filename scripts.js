@@ -128,7 +128,7 @@ function addNote(note, noteClass) {
 
     let noteElement = document.createElement('div');
     noteElement.className = 'single ' + noteClass;
-    noteElement.setAttribute('data-datetime', fullDatetime.toLocaleString('cs-CZ')); // Store full datetime
+    noteElement.setAttribute('data-datetime', displayTime); // Store full datetime
 
     let textSpan = document.createElement('span'); // Use a span to hold the text content
     textSpan.textContent = triggerPhraseMap[noteClass] ? `${triggerPhraseMap[noteClass]} ${note}` : note;

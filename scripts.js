@@ -17,7 +17,7 @@ let status = document.getElementById('status');
 function updateStatus(message, color, commandText) {
   status.textContent = message;
 
-  listeningStatus.style.color = color;
+  //listeningStatus.style.color = color;
 
   // Ensure a default class is set initially (if not already defined)
   if (!listeningStatus.className) {

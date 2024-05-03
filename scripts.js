@@ -41,7 +41,7 @@ function setupVoiceRecognition() {
         // Handle no command match
         annyang.addCallback('resultNoMatch', (phrases) => {
             console.log('No command recognized:', phrases);
-            updateStatus('Command not recognized', 'red');
+            updateStatus('Command not recognized', 'red','');
             setTimeout(() => startAnnyang(), 3000); // Restart after a brief pause
         });
 

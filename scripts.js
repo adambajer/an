@@ -14,7 +14,7 @@ function updateStatus(message, color, commandText) {
      // Fetch the appropriate class based on the command
     status.textContent = message;
     listeningStatus.style.color = color;
-    listeningStatus.className = triggerPhraseMap[commandText];  // Apply the fetched class directly
+    listeningStatus.className = triggerPhraseMap[message];  // Apply the fetched class directly
 }
 
 

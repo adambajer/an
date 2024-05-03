@@ -46,12 +46,30 @@ function setupVoiceRecognition() {
             setTimeout(() => startAnnyang(), 3000); // Restart after a brief pause
         });
 
-        // Handle command match
-     annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
-    console.log('Command ' + commandText); // Adjusted to output "Command <commandText>"
-    updateStatus(`Command ${commandText}`, 'green'); // Adjusted to display "Command <commandText>"
+annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
+    console.log('Command ' + commandText); // Log command
+    const commandClass = getCommandClass(commandText); // Get the class associated with the command
+    updateStatus(`Command ${commandText}`, 'green', commandClass); // Update status with the command class
     setTimeout(() => startAnnyang(), 1000); // Restart after processing the command
 });
+
+function updateStatus(message, color, commandClass = '') {
+    status.textContent = message;
+    listeningStatus.style.color = color;
+    if (commandClass) {
+        listeningStatus.className = commandClass; // Apply the command class to the listening status element
+    }
+}
+
+function getCommandClass(commandText) {
+    // Iterate over the triggerPhraseMap to find the class associated with the command text
+    for (let key in triggerPhraseMap) {
+        if (triggerPhraseMap[key] === commandText) {
+            return key; // Return the key which is the class name related to the command
+        }
+    }
+    return ''; // Return an empty string if no class is associated with the command
+}
 
     } else {
         alert('Annyang is not loaded!');
@@ -141,12 +159,22 @@ function makeNoteEditable(noteElement) {
     };
 }
 
-function updateStatus(message, color) {
+function updateStatus(message, color, commandClass = '') {
     status.textContent = message;
     listeningStatus.style.color = color;
-
+    if (commandClass) {
+        listeningStatus.className = commandClass; // Apply the command class to the listening status element
+    }
 }
-
+function getCommandClass(commandText) {
+    // Iterate over the triggerPhraseMap to find the class associated with the command text
+    for (let key in triggerPhraseMap) {
+        if (triggerPhraseMap[key] === commandText) {
+            return key; // Return the key which is the class name related to the command
+        }
+    }
+    return ''; // Return an empty string if no class is associated with the command
+}
 function saveNotes() {
     const notes = Array.from(document.querySelectorAll('.single')).map(note => {
         let textSpan = note.querySelector('span'); // Ensure only text content is saved

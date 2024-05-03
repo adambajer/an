@@ -274,4 +274,54 @@ function addManualNote() {
         addNote(noteInput.value, 'manual-note'); // Corrected to pass note text and note class correctly
         noteInput.value = ''; // Clear input after adding
     }
+}// Function to create and display the context menu
+function showContextMenu(event) {
+  event.preventDefault(); // Prevent default right-click behavior
+
+  // Create the context menu element
+  const contextMenu = document.createElement('div');
+  contextMenu.classList.add('context-menu'); // Add a class for styling
+
+  // Add menu items (adjust as needed)
+  const editMenuItem = document.createElement('div');
+  editMenuItem.textContent = 'Edit';
+  editMenuItem.addEventListener('click', () => {
+    // Handle edit functionality for the clicked note
+    console.log('Edit clicked for note:', event.target); // Replace with your edit logic
+    contextMenu.style.display = 'none'; // Hide menu after click
+  });
+  contextMenu.appendChild(editMenuItem);
+
+  const deleteMenuItem = document.createElement('div');
+  deleteMenuItem.textContent = 'Delete';
+  deleteMenuItem.addEventListener('click', () => {
+    // Handle delete functionality for the clicked note
+    console.log('Delete clicked for note:', event.target); // Replace with your delete logic
+    contextMenu.style.display = 'none'; // Hide menu after click
+    // You might want to remove the note element from the DOM here
+  });
+  contextMenu.appendChild(deleteMenuItem);
+
+  // Position the menu relative to the clicked note
+  const clickX = event.clientX;
+  const clickY = event.clientY;
+  contextMenu.style.top = `${clickY}px`;
+  contextMenu.style.left = `${clickX}px`;
+
+  // Append the menu to the body element
+  document.body.appendChild(contextMenu);
+
+  // Hide the menu on any click outside the context menu
+  document.addEventListener('click', (clickEvent) => {
+    if (!contextMenu.contains(clickEvent.target)) {
+      contextMenu.style.display = 'none';
+    }
+  });
 }
+
+// Add right-click event listener to each note
+const noteElements = document.querySelectorAll('.single');
+noteElements.forEach(note => {
+  note.addEventListener('contextmenu', showContextMenu);
+});
+

@@ -19,9 +19,8 @@ span#status {
      border: 1px solid currentColor;
     padding: 1vw;
     font-size: 1vw;
-    overflow: hidden;
-    border-radius: 1vw;
-    box-shadow: 0 0 14px 0px currentColor;
+    overflow: hidden; 
+    box-shadow: 0 0 5px 0px currentColor;
 }
 .commands {
     font-size:1vw;

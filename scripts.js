@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // When sound starts, indicate listening
         annyang.addCallback('soundstart', () => {
             console.log('Listening...');
-            updateStatus('Listening...', 'orange');
+            updateStatus('Listening...', 'blue');
         });
 
         // Handle no command match
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 
 function startAnnyang() {
-    annyang.start({ autoRestart: false, continuous: true });               updateStatus('Listening...', 'orange');
+    annyang.start({ autoRestart: false, continuous: true });               updateStatus('Listening...', 'blue');
 
 
 }
@@ -86,7 +86,7 @@ function addNote(note, noteClass) {
     noteElement.setAttribute('data-datetime', fullDatetime.toLocaleString('cs-CZ')); // Store full datetime
 
     let textSpan = document.createElement('span'); // Use a span to hold the text content
-    textSpan.textContent = `${triggerPhraseMap[noteClass] || 'Custom Note'} ${note} - ${displayTime}`;
+    textSpan.textContent = `${triggerPhraseMap[noteClass] || 'Custom Note'} ${note}`;
     noteElement.appendChild(textSpan);
 
     noteElement.appendChild(createDeleteButton(noteElement));
@@ -149,7 +149,8 @@ function saveNotes() {
 function loadNotes() {
     const notesArea = document.getElementById('noteArea');
     const savedNotes = JSON.parse(localStorage.getItem('notes') || '[]');
-    savedNotes.forEach(({ text, noteClass, datetime }) => {
+    // Iterate through the saved notes in reverse order
+    savedNotes.slice().reverse().forEach(({ text, noteClass, datetime }) => {
         let noteElement = document.createElement('div');
         noteElement.className = 'single ' + noteClass;
         noteElement.setAttribute('data-datetime', datetime);
@@ -163,6 +164,7 @@ function loadNotes() {
         notesArea.prepend(noteElement);
     });
 }
+
 function downloadNotes() {
     var notes = document.querySelectorAll('.single');
     var content = 'Your Notes:\n';

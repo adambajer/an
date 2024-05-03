@@ -11,21 +11,23 @@ var triggerPhraseMap = {
 let listeningStatus = document.getElementById('listeningStatus');
 let status = document.getElementById('status'); 
 function updateStatus(message, color, commandText) {
-    let commandClass = getCommandClass(commandText);  // Ensure this returns the correct class
+    let commandClass = getCommandClass(commandText);  // Fetch the appropriate class based on the command
     status.textContent = message;
     listeningStatus.style.color = color;
-    listeningStatus.className = commandClass ? commandClass : 'custom-trigger';  // Fallback to 'custom-trigger' if no class is found
+    listeningStatus.className = triggerPhraseMap[commandClass];  // Apply the fetched class directly
 }
 
 
 function getCommandClass(commandText) {
+    // Clean or modify commandText as necessary
     for (let key in triggerPhraseMap) {
         if (triggerPhraseMap[key] === commandText) {
-            return key;  // Return the class that matches the command
+            return key;  // Return the matching class
         }
     }
-    return 'custom-trigger';  // Return default class if no match is found
+    return 'custom-trigger';  // Default class if no match is found
 }
+
 document.addEventListener('DOMContentLoaded', function () {
     if (!window.notesLoaded) {
         loadNotes();

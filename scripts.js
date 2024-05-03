@@ -8,8 +8,8 @@ var triggerPhraseMap = {
     'custom-trigger': 'Custom' // Default phrase for custom triggers
 };
 
-const listeningStatus = document.getElementById('listeningStatus');
-const status = document.getElementById('status'); 
+let listeningStatus = document.getElementById('listeningStatus');
+let status = document.getElementById('status'); 
 function updateStatus(message, color, commandClass = '') {
     // Remove '*note' from the commandClass if present
     commandClass = commandClass.replace(' *note', '');

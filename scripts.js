@@ -258,8 +258,9 @@ function updateTriggerList(triggerPhrase) {
 function addManualNote() {
     var noteInput = document.getElementById('manualNoteInput');
     if (noteInput.value.trim() !== '') {
-        addNote('noteArea', noteInput.value, 'manual-note');
+        addNote(noteInput.value, 'manual-note'); // Corrected to pass note text and note class correctly
         noteInput.value = ''; // Clear input after adding
     }
 }
+
 

@@ -10,15 +10,14 @@ var triggerPhraseMap = {
 
 let listeningStatus = document.getElementById('listeningStatus');
 let status = document.getElementById('status'); 
-function updateStatus(message, color, commandClass = '') {
+function updateStatus(message, color, commandClass) {
     // Remove '*note' from the commandClass if present
-    commandClass = commandClass.replace(' *note', '');
 
     status.textContent = message;
     listeningStatus.style.color = color;
-    
-    // Replace the entire class list with the new class, ensuring only relevant class is applied
-    listeningStatus.className = "test";
+
+    // If a matching key is found, use it as the class; otherwise, use 'custom-trigger'
+    listeningStatus.className = commandClass ? commandClass : 'custom-trigger';
 }
 
 

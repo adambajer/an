@@ -13,8 +13,11 @@ let status = document.getElementById('status');
 function updateStatus(message, color, commandText) {
      // Fetch the appropriate class based on the command
     status.textContent = message;
+    console.log(message);
     listeningStatus.style.color = color;
     listeningStatus.className = triggerPhraseMap[message];  // Apply the fetched class directly
+    console.log(triggerPhraseMap);    console.log(triggerPhraseMap[message]);
+
 }
 
 

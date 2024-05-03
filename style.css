@@ -16,11 +16,24 @@ span#status {
 }
 #listeningStatus {
    
-     border: 1px solid currentColor;
+        display: inline-flex;
+    flex-direction: row;
+    align-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: -webkit-fill-available;
+    justify-content: space-between;
+    margin-bottom: 2vh;
+    position: fixed;
+    z-index: 999999;
+    background: #ffffff;
     padding: 1vw;
-    font-size: 1vw;
-    overflow: hidden; 
-    box-shadow: 0 0 5px 0px currentColor;
+    border-radius: 0vw;
+    left: 0;
+    top: 0vw;
+    margin: 0vw;
+    backdrop-filter: blur(7px);
+    border: 1px solid #ccc;
 }
 .commands {
     font-size:1vw;
@@ -124,27 +137,7 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
     min-height: 25vh;
 }
 
-.df {
-      display: inline-flex;
-    flex-direction: row;
-    align-content: center;
-    flex-wrap: nowrap;
-    align-items: center;
-    width: -webkit-fill-available;
-    justify-content: space-between;
-    margin-bottom: 2vh;
-    position: fixed;
-    z-index: 999999;
-    background: #ffffff;
-    padding: 1vw;
-    border-radius: 0vw;
-    left: 0;
-    top: 0vw;
-    margin: 0vw;
-    backdrop-filter: blur(7px);
-    border: 1px solid #ccc;
-}
-
+ 
 
 .center {
     text-align: center;

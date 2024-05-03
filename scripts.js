@@ -33,7 +33,7 @@ function updateStatus(message, color, commandText) {
   console.log(triggerPhraseMap[triggerPhrase]);
 
   // Update document title with the recognized command text
-  document.title = `Listening for "${commandText}"`; // Set title with the full command (including "*note")
+  document.title = commandText; // Set title with the full command (including "*note")
 }
 
 

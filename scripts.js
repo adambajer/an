@@ -22,7 +22,7 @@ function updateStatus(message, color, state) {
   listeningStatus.classList.add(state);
 
   console.log(triggerPhraseMap);
-  console.log(triggerPhraseMap[commandText]);
+  console.log(triggerPhraseMap[state]);
 }
 
 

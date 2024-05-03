@@ -10,6 +10,18 @@ var triggerPhraseMap = {
 
 const listeningStatus = document.getElementById('listeningStatus');
 const status = document.getElementById('status'); 
+function updateStatus(message, color, commandClass = '') {
+    // Remove '*note' from the commandClass if present
+    commandClass = commandClass.replace(' *note', '');
+
+    status.textContent = message;
+    listeningStatus.style.color = color;
+    
+    // Replace the entire class list with the new class, ensuring only relevant class is applied
+    listeningStatus.className = commandClass;
+}
+
+
 document.addEventListener('DOMContentLoaded', function () {
     if (!window.notesLoaded) {
         loadNotes();
@@ -51,17 +63,6 @@ annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
     updateStatus(`Command ${commandText}`, 'green', commandClass); // Update status with the command class
     setTimeout(() => startAnnyang(), 1000); // Restart after processing the command
 });
-
-function updateStatus(message, color, commandClass = '') {
-    // Remove '*note' from the commandClass if present
-    commandClass = commandClass.replace(' *note', '');
-
-    status.textContent = message;
-    listeningStatus.style.color = color;
-    
-    // Replace the entire class list with the new class, ensuring only relevant class is applied
-    listeningStatus.className = commandClass;
-}
 
 
 function getCommandClass(commandText) {

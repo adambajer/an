@@ -185,7 +185,9 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
 .sheet .note-mel {
     border-right: 0.2vw solid #ffd000;
 }
-
+#listeningStatus .note-mel {
+color:#ffd000;
+}
 .sheet .note-mel:focus {
     color: #ffd000;
 }
@@ -194,7 +196,9 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
 .sheet .note-musi {
     border-right: 0.2vw solid #ce00ff;
 }
-
+#listeningStatus .note-musi {
+color:#ce00ff;
+}
 .sheet .note-musi:focus {
     color: #ce00ff;
 }
@@ -205,7 +209,9 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
 .sheet .note-mela {
     border-right: 0.2vw solid #ff0000;
 }
-
+#listeningStatus .note-mela {
+color: #ff0000;
+}
 .sheet .note-mela:focus {
     color: #ff0000;
 }
@@ -215,7 +221,9 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
     border-right: 0.2vw solid #000000;
 
 }
-
+#listeningStatus .note-musime {
+color: #000000;
+}
 .sheet .note-musime:focus {
     color: #000000;
 }
@@ -224,7 +232,9 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
 .sheet div.note-melibychom {
     border-right: 0.2vw solid #0099ff;
 }
-
+#listeningStatus .note-melibychom {
+color: #0099ff;
+}
 
 .sheet .note-melibychom:focus {
     color: #0099ff;
@@ -233,6 +243,9 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
 /* Light yellow for "musíme" */
 .sheet .note-melibysme {
     border-right: 0.2vw solid #bf6300;
+}
+#listeningStatus .note-melibysme {
+color: #bf6300;
 }
 
 .sheet .note-melibysme:focus {
@@ -243,17 +256,24 @@ input:focus, input:active, input:focus-visible, .single:focus-visible, .single:f
     background: #ffd000;
     color: #ffd000;
 }
+#listeningStatus .note-mel {
+color: #ffd000;
+}
 
 .inline-flex .note-musi {
     background: #ce00ff;
     color: #ce00ff;
 }
-
+#listeningStatus .note-musi {
+color:#ce00ff;
+}
 .inline-flex .note-mela {
     background: #ff0000;
     color: #ff0000;
 }
-
+#listeningStatus .note-mela {
+color:#ff0000;
+}
 .inline-flex div.note-musime {
     background: #000000;
     color: #000000;

@@ -116,7 +116,7 @@ function addNote(note, noteClass) {
     noteElement.setAttribute('data-datetime', fullDatetime.toLocaleString('cs-CZ')); // Store full datetime
 
     let textSpan = document.createElement('span'); // Use a span to hold the text content
-    textSpan.textContent = `${triggerPhraseMap[noteClass] ||} ${note}`;
+    textSpan.textContent = `${triggerPhraseMap[noteClass]} || ${note}`;
     noteElement.appendChild(textSpan);
 
     noteElement.appendChild(createDeleteButton(noteElement));

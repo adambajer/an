@@ -73,11 +73,12 @@ function setupVoiceRecognition() {
         });
 
         // Handle no command match
-        annyang.addCallback('resultNoMatch', (phrases) => {
-            console.log('No command recognized:', phrases);
-            updateStatus('Command not recognized', 'red','error');
-            setTimeout(() => startAnnyang(), 3000); // Restart after a brief pause
-        });
+    annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
+  let commandClass = getCommandClass(phrases); // Use phrases for class lookup
+  updateStatus(commandText, 'green', phrases); // Pass phrases to updateStatus
+  setTimeout(() => startAnnyang(), 1000); // Restart after processing the command
+});
+
     } }
 annyang.addCallback('resultMatch', (userSaid, commandText, phrases) => {
   let commandClass = triggerPhraseMap[phrases];
